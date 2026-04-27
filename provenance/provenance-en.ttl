@@ -1,0 +1,12 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix : <> .
+<..\index-en.html> a prov:Entity;
+	 dc:title "European High-Risk Medical Device Ontology";
+	 prov:wasAttributedTo :agent0;
+	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+	 prov:specializationOf <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO>;
+	 prov:wasGeneratedAt "2026-04-20";
+.
+:agent0 a prov:Agent; foaf:name "Ignasi Camps".

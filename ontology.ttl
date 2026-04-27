@@ -1,0 +1,1021 @@
+@prefix : <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#> .
+
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO> rdf:type owl:Ontology .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://www.w3.org/2000/01/rdf-schema#sameAs
+rdfs:sameAs rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice
+:affectsDevice rdf:type owl:ObjectProperty ;
+               rdfs:domain :Risk ;
+               rdfs:range :Device ;
+               rdfs:comment "Relates a risk to a specific device that may be affected by that risk" ;
+               rdfs:label "Affects Device" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType
+:affectsDeviceType rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Risk ;
+                   rdfs:range :DeviceType ;
+                   rdfs:comment "Relates a risk to a specific device type that may be affected by that risk" ;
+                   rdfs:label "Affects device type" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk
+:hasAssociatedRisk rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Incident ;
+                   rdfs:range :Risk ;
+                   rdfs:comment "Relates an incident to a specific risk that caused it" ;
+                   rdfs:label "Has associated Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory
+:hasCategory rdf:type owl:ObjectProperty ;
+             rdfs:domain :Risk ;
+             rdfs:range :RiskCategory ;
+             rdfs:comment "Relates a risk to a specific category of risks" ;
+             rdfs:label "Has category" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry
+:hasCountry rdf:type owl:ObjectProperty ;
+            rdfs:domain :Manufacturer ;
+            rdfs:range :Country ;
+            rdfs:comment "Relates a risk to a manufacturer to a specific country of procedence" ;
+            rdfs:label "Has Country" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType
+:hasDeviceType rdf:type owl:ObjectProperty ;
+               rdfs:domain :Device ;
+               rdfs:range :DeviceType ;
+               rdfs:comment "Relates a device to a specific type" ;
+               rdfs:label "Has device type" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability
+:hasProbability rdf:type owl:ObjectProperty ;
+                rdfs:domain :Risk ;
+                rdfs:range :Probability ;
+                rdfs:comment "Specifies the probability for a risk to actually happend" ;
+                rdfs:label "Has Probability" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework
+:hasRegulatoryFramework rdf:type owl:ObjectProperty ;
+                        rdfs:domain :Device ;
+                        rdfs:range :RegulatoryFramework ;
+                        rdfs:comment "Relates the regulatory framework that legislates over a device" ;
+                        rdfs:label "has regulatory framework" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass
+:hasRiskClass rdf:type owl:ObjectProperty ;
+              rdfs:domain :Device ;
+              rdfs:range :RiskClass ;
+              rdfs:comment "Relates a device to a specific risk class" ;
+              rdfs:label "Has risk class" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity
+:hasSeverity rdf:type owl:ObjectProperty ;
+             rdfs:domain :Risk ;
+             rdfs:range :Severity ;
+             rdfs:label "Classifies the severity of a risk" ,
+                        "Has severity" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy
+:manufacturedBy rdf:type owl:ObjectProperty ;
+                rdfs:domain :Device ;
+                rdfs:range :Manufacturer ;
+                rdfs:label "Manufactured by" ,
+                           "Relates a device to its manufacturer" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident
+:relatedToIncident rdf:type owl:ObjectProperty ;
+                   rdfs:domain :CorrectiveAction ;
+                   rdfs:range :Incident ;
+                   rdfs:comment "relates an incident to a specific corrective action taken around it" ;
+                   rdfs:label "Related to incident" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy
+:reportedBy rdf:type owl:ObjectProperty ;
+            rdfs:domain :Incident ;
+            rdfs:range :Manufacturer ;
+            rdfs:label "Reported by" ,
+                       "Specifies which manufacturer has reported a specific incident" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry
+:reportedInCountry rdf:type owl:ObjectProperty ;
+                   rdfs:domain :Incident ;
+                   rdfs:range :Country ;
+                   rdfs:comment "relates an incident to the country its been reported at" ;
+                   rdfs:label "Reported in country" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken
+:correctiveActionTaken rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Incident ;
+                       rdfs:range xsd:boolean ;
+                       rdfs:comment "Indicates whether a corrective action has been taken in response to an incident" ;
+                       rdfs:label "Corrective action taken" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate
+:hasActionDate rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :CorrectiveAction ;
+               rdfs:range xsd:date ;
+               rdfs:comment "Indicates whether a corrective action has been taken in response to an incident" ;
+               rdfs:label "Action date" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries
+:hasAffectedCountries rdf:type owl:DatatypeProperty ;
+                      rdfs:subPropertyOf owl:topDataProperty ;
+                      rdfs:domain :CorrectiveAction ;
+                      rdfs:range xsd:string ;
+                      rdfs:comment "Countries or regions affected by a corrective action" ;
+                      rdfs:label "Affected countries" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount
+:hasAffectedDeviceCount rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :CorrectiveAction ;
+                        rdfs:range xsd:integer ;
+                        rdfs:comment "Number of devices affected by a corrective action" ;
+                        rdfs:label "Affected device count" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge
+:hasAffectedPatientAge rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Incident ;
+                       rdfs:range xsd:integer ;
+                       rdfs:comment "Age of the patient affected by an incident" ;
+                       rdfs:label "Affected patient age" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex
+:hasAffectedPatientSex rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Incident ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Age of the patient affected by an incident" ;
+                       rdfs:label "Affected patient sex" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber
+:hasAuthorizationNumber rdf:type owl:DatatypeProperty ;
+                        rdfs:subPropertyOf owl:topDataProperty ;
+                        rdfs:domain :Manufacturer ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Regulatory authorization number assigned to a manufacturer" ;
+                        rdfs:label "Has authorization number" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate
+:hasClosureDate rdf:type owl:DatatypeProperty ;
+                rdfs:domain :CorrectiveAction ;
+                rdfs:range xsd:date ;
+                rdfs:label "Closure date" ,
+                           "Date on which a corrective action was closed" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority
+:hasCompetentAuthority rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Manufacturer ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "Authority responsible for the regulation" ;
+                       rdfs:label "Competent authority" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail
+:hasContactEmail rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf owl:topDataProperty ;
+                 rdfs:domain :Manufacturer ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Email address used to contact the manufacturer" ;
+                 rdfs:label "Contact email" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription
+:hasCorrectiveActionDescription rdf:type owl:DatatypeProperty ;
+                                rdfs:domain :CorrectiveAction ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "Description of a corrective action" ;
+                                rdfs:label "Corrective action description" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate
+:hasDetectionDate rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :Incident ;
+                  rdfs:range xsd:date ;
+                  rdfs:comment "Date in which an incident was detected" ;
+                  rdfs:label "Detection date" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef
+:hasEudamedFscaRef rdf:type owl:DatatypeProperty ;
+                   rdfs:subPropertyOf owl:topDataProperty ;
+                   rdfs:domain :CorrectiveAction ;
+                   rdfs:range xsd:string ;
+                   rdfs:label "EUDAMED FSCA ref" ,
+                              "EUDEMED reference number for a FSCA" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef
+:hasEudamedIncidentRef rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:domain :Incident ;
+                       rdfs:range xsd:string ;
+                       rdfs:comment "EUDAMED reference number for an incident" ;
+                       rdfs:label "EUDAMED incident ref" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn
+:hasEudamedSrn rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Manufacturer ;
+               rdfs:range xsd:string ;
+               rdfs:comment "EUDAMED SRN" ,
+                            "Single Registration Number assigned to a manufacturer in EUDAMED" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate
+:hasEventDate rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Incident ;
+              rdfs:range xsd:date ;
+              rdfs:label "Event date" ,
+                         "date in which the incident took place" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode
+:hasImdrfCode rdf:type owl:DatatypeProperty ;
+              rdfs:subPropertyOf owl:topDataProperty ;
+              rdfs:domain :Risk ;
+              rdfs:range xsd:string ;
+              rdfs:comment "Code assigned to a risk according to the IMDRF terminology" ;
+              rdfs:label "IMDRF code" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription
+:hasIncidentDescription rdf:type owl:DatatypeProperty ;
+                        rdfs:domain :Incident ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "Description of an incident" ;
+                        rdfs:label "Incident description" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose
+:hasIntendedPurpose rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf owl:topDataProperty ;
+                    rdfs:domain :Device ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Description of the intended medical purpose or use of a device" ;
+                    rdfs:label "Intended Purpose" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome
+:hasOutcome rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Incident ;
+            rdfs:range xsd:string ;
+            rdfs:comment "Result or consequence of an incident involving a medical device" ;
+            rdfs:label "Outcome" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate
+:hasReportDate rdf:type owl:DatatypeProperty ;
+               rdfs:subPropertyOf owl:topDataProperty ;
+               rdfs:domain :Incident ;
+               rdfs:range xsd:date .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription
+:hasRiskDescription rdf:type owl:DatatypeProperty ;
+                    rdfs:domain :Risk ;
+                    rdfs:range xsd:string ;
+                    rdfs:comment "Description of a risk" ;
+                    rdfs:label "Risk description" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope
+:hasScope rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :CorrectiveAction ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Scope" ,
+                       "The scope of a corrective action" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus
+:hasStatus rdf:type owl:DatatypeProperty ;
+           rdfs:subPropertyOf owl:topDataProperty ;
+           rdfs:domain :CorrectiveAction ;
+           rdfs:range xsd:string ;
+           rdfs:comment "Indicates whether a corrective action is closed" ;
+           rdfs:label "Status" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi
+:hasUdiDi rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :Device ;
+          rdfs:range xsd:string ;
+          rdfs:comment "Unique Device Identifier assigned to a medical device" ;
+          rdfs:label "UDI ID" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive
+:isActive rdf:type owl:DatatypeProperty ;
+          rdfs:subPropertyOf owl:topDataProperty ;
+          rdfs:domain :Device ;
+          rdfs:range xsd:boolean ;
+          rdfs:comment "Indicates whether a device is an active device" ;
+          rdfs:label "Is active" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice
+:isActiveDevice rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf owl:topDataProperty ;
+                rdfs:domain :DeviceType ;
+                rdfs:range xsd:boolean ;
+                rdfs:comment "Indicates whether a device Type represents an active device" ;
+                rdfs:label "Is active device type" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable
+:isImplantable rdf:type owl:DatatypeProperty ;
+               rdfs:domain :Device ;
+               rdfs:range xsd:boolean ;
+               rdfs:comment "Indicates wether a device is implantable" ;
+               rdfs:label "Is implantable" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice
+:isImplantableDevice rdf:type owl:DatatypeProperty ;
+                     rdfs:subPropertyOf owl:topDataProperty ;
+                     rdfs:domain :DeviceType ;
+                     rdfs:range xsd:boolean ;
+                     rdfs:comment "indicates wether a device type represents an implantable device" ;
+                     rdfs:label "is implantable device type" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd
+:isIvd rdf:type owl:DatatypeProperty ;
+       rdfs:subPropertyOf owl:topDataProperty ;
+       rdfs:domain :Device ;
+       rdfs:range xsd:boolean ;
+       rdfs:comment "Indicates whether a device is an in vitro diagnostic medical device" ;
+       rdfs:label "is IVD" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable
+:isReusable rdf:type owl:DatatypeProperty ;
+            rdfs:subPropertyOf owl:topDataProperty ;
+            rdfs:domain :Device ;
+            rdfs:range xsd:boolean ;
+            rdfs:comment "Indicates whether a device is reusable" ;
+            rdfs:label "Is reusable" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice
+:isReusableDevice rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf owl:topDataProperty ;
+                  rdfs:domain :DeviceType ;
+                  rdfs:range xsd:boolean ;
+                  rdfs:comment "Indicates wether a device type represents a reusable device" ;
+                  rdfs:label "Is reusable device type" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice
+:ActiveDevice rdf:type owl:Class ;
+              rdfs:subClassOf :Device ;
+              rdfs:comment "Medical device that depends on a power source" ;
+              rdfs:label "Active Device" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk
+:ContaminationRisk rdf:type owl:Class ;
+                   rdfs:subClassOf :Risk ;
+                   rdfs:comment "Risk involving external contaminant agents" ;
+                   rdfs:label "Contamination Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction
+:CorrectiveAction rdf:type owl:Class ;
+                  rdfs:subClassOf :MedicalEntity ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty :relatedToIncident ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onClass :Incident
+                                  ] ;
+                  rdfs:comment "Class representing a corrective action taken after an incident" ;
+                  rdfs:label "Corrective action" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country
+:Country rdf:type owl:Class ;
+         rdfs:subClassOf :MedicalEntity ;
+         rdfs:comment "Class representing a territory related with the manufacturer of a device or an incident" ;
+         rdfs:label "Country" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk
+:CybersecurityRisk rdf:type owl:Class ;
+                   rdfs:subClassOf :Risk ;
+                   rdfs:comment "Risk related to the software security of the device" ;
+                   rdfs:label "Cybersecurity Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device
+:Device rdf:type owl:Class ;
+        rdfs:subClassOf :MedicalEntity ,
+                        [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasDeviceType ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass :DeviceType
+                                               ]
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasRegulatoryFramework ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass :RegulatoryFramework
+                                               ]
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :hasRiskClass ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass :RiskClass
+                                               ]
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :manufacturedBy ;
+                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                 owl:onClass :Manufacturer
+                                               ]
+                                             ) ;
+                          rdf:type owl:Class
+                        ] ;
+        rdfs:comment "Medical device registered in the catalogue" ;
+        rdfs:label "Device" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType
+:DeviceType rdf:type owl:Class ;
+            rdfs:subClassOf :MedicalEntity ;
+            rdfs:comment "Class encapsulating the type of a device" ;
+            rdfs:label "Device Type" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk
+:DiagnosticRisk rdf:type owl:Class ;
+                rdfs:subClassOf :Risk ;
+                rdfs:comment "Risk related to incorrect or incomplete diagnostic results produced by a medical device" ;
+                rdfs:label "Diagnostic Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass
+:IVDRRiskClass rdf:type owl:Class ;
+               rdfs:subClassOf :RiskClass ;
+               owl:disjointWith :MDRRiskClass ;
+               rdfs:comment "Risk class for medical devices under the IVDR regulatory framework" ;
+               rdfs:label "IVDR Risk Class" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice
+:ImplantableDevice rdf:type owl:Class ;
+                   rdfs:subClassOf :Device ;
+                   rdfs:comment "Medical device that should be implanted in the human body" ;
+                   rdfs:label "Implantable Device" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection
+:InSituCorrection rdf:type owl:Class ;
+                  rdfs:subClassOf :CorrectiveAction ;
+                  rdfs:comment "Class representing a corrective action made in situ" ;
+                  rdfs:label "In situ correction" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident
+:Incident rdf:type owl:Class ;
+          rdfs:subClassOf :MedicalEntity ,
+                          [ owl:intersectionOf ( [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :hasAssociatedRisk ;
+                                                   owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :Risk
+                                                 ]
+                                                 [ rdf:type owl:Restriction ;
+                                                   owl:onProperty :reportedBy ;
+                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                   owl:onClass :Manufacturer
+                                                 ]
+                                               ) ;
+                            rdf:type owl:Class
+                          ] ;
+          rdfs:comment "Class that represents an incident with a medical device" ;
+          rdfs:label "Incident" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction
+:IncidentWithCorrectiveAction rdf:type owl:Class ;
+                              rdfs:subClassOf :Incident ;
+                              rdfs:comment "Class that represents an incident that needs acorrectove action" ;
+                              rdfs:label "Incident with corrective Action" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk
+:InfectionRisk rdf:type owl:Class ;
+               rdfs:subClassOf :Risk ;
+               rdfs:comment "Risk of infection related to a medical device" ;
+               rdfs:label "Infection Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk
+:InjuryRisk rdf:type owl:Class ;
+            rdfs:subClassOf :Risk ;
+            rdfs:comment "Risk that the device could cause an injury" ;
+            rdfs:label "Injury Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass
+:MDRRiskClass rdf:type owl:Class ;
+              rdfs:subClassOf :RiskClass ;
+              rdfs:comment "Risk class for medical devices under the MDR regulatory framework" ;
+              rdfs:label "MDR Risk Class" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk
+:MalfunctionRisk rdf:type owl:Class ;
+                 rdfs:subClassOf :Risk ;
+                 rdfs:comment "Risk of device malfunction" ;
+                 rdfs:label "Malfunction Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer
+:Manufacturer rdf:type owl:Class ;
+              rdfs:subClassOf :MedicalEntity ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasCountry ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onClass :Country
+                              ] ;
+              rdfs:comment "Manufacturer of a catalogued medical device" ;
+              rdfs:label "Manufacturer" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk
+:MaterialRisk rdf:type owl:Class ;
+              rdfs:subClassOf :Risk ;
+              rdfs:comment "Risk related to the materials, substances or components used in a medical device." ;
+              rdfs:label "Material Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity
+:MedicalEntity rdf:type owl:Class ;
+               rdfs:comment "General class representing any entity related to medical devices, risks, incidents, manufacturers or corrective actions" ;
+               rdfs:label "Medical entity" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident
+:NearMissIncident rdf:type owl:Class ;
+                  rdfs:subClassOf :Incident ;
+                  owl:disjointWith :SeriousIncident ;
+                  rdfs:comment "Class representing a near miss incident with a medical device" ;
+                  rdfs:label "Near Miss Incident" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability
+:Probability rdf:type owl:Class ;
+             rdfs:subClassOf :MedicalEntity ;
+             rdfs:comment "Probabilty for a risk  become an incient" ;
+             rdfs:label "Probability" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk
+:RadiationRisk rdf:type owl:Class ;
+               rdfs:subClassOf :Risk ;
+               rdfs:comment "Risk for radiation of the devide" ;
+               rdfs:label "Radiation Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall
+:Recall rdf:type owl:Class ;
+        rdfs:subClassOf :CorrectiveAction ;
+        rdfs:comment "Corrective action consisting of a recall" ;
+        rdfs:label "Recall" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework
+:RegulatoryFramework rdf:type owl:Class ;
+                     rdfs:subClassOf :MedicalEntity ;
+                     rdfs:comment "Framework that regulates the medical device" ;
+                     rdfs:label "Regulatory Framework" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice
+:ReusableDevice rdf:type owl:Class ;
+                rdfs:subClassOf :Device ;
+                rdfs:comment "Reusable medical device" ;
+                rdfs:label "Reusable Device" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk
+:Risk rdf:type owl:Class ;
+      rdfs:subClassOf :MedicalEntity ;
+      rdfs:comment "Risk related to a specific medical device" ;
+      rdfs:label "Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory
+:RiskCategory rdf:type owl:Class ;
+              rdfs:subClassOf :MedicalEntity ;
+              rdfs:comment "Category used to group risks according to their nature" ;
+              rdfs:label "Risk Category" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass
+:RiskClass rdf:type owl:Class ;
+           rdfs:subClassOf :MedicalEntity ;
+           rdfs:comment "Cclassification used to indicate the risk level associated with a device" ;
+           rdfs:label "Risk Class" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert
+:SafetyAlert rdf:type owl:Class ;
+             rdfs:subClassOf :CorrectiveAction ;
+             rdfs:comment "Class representing a safety alert as a corrective action" ;
+             rdfs:label "Safety Alert" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident
+:SeriousIncident rdf:type owl:Class ;
+                 rdfs:subClassOf :Incident ;
+                 rdfs:comment "Class that represents an incident that had a serious impact" ;
+                 rdfs:label "Serious Incident" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity
+:Severity rdf:type owl:Class ;
+          rdfs:subClassOf :MedicalEntity ;
+          rdfs:comment "Classification of the severity of an incident" ;
+          rdfs:label "Severity" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk
+:SoftwareRisk rdf:type owl:Class ;
+              rdfs:subClassOf :Risk ;
+              rdfs:comment "Risk related to software malfunction of a medical device" ;
+              rdfs:label "Software Risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice
+:UserNotice rdf:type owl:Class ;
+            rdfs:subClassOf :CorrectiveAction ;
+            rdfs:comment "Corrective action consisting of a notice issued to users with relevant safety information or instructions" ;
+            rdfs:label "User Notice" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC
+:ClassC rdf:type owl:NamedIndividual ,
+                 :IVDRRiskClass ;
+        rdfs:comment "IVDR risk class C for in vitro diagnostic devices" ;
+        rdfs:label "Class C" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII
+:ClassIII rdf:type owl:NamedIndividual ,
+                   :MDRRiskClass ;
+          rdfs:isDefinedBy "Highest MDR risk class for medical devices" ;
+          rdfs:label "Class III" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical
+:Critical rdf:type owl:NamedIndividual ,
+                   :Severity ;
+          rdfs:comment "Critical severity level for a risk" ;
+          rdfs:label "Critical" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU
+:DEU rdf:type owl:NamedIndividual ,
+              :Country ;
+     rdfs:comment "European Country" ;
+     rdfs:label "Germany" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001
+:DEV-001 rdf:type owl:NamedIndividual ,
+                  :Device ;
+         :hasDeviceType :ImplantableActiveDevice ;
+         :hasRegulatoryFramework :MDR ;
+         :hasRiskClass :ClassIII ;
+         :manufacturedBy :MAN-001 ;
+         :hasIntendedPurpose "Ventricular assist device for end-stage heart failure" ;
+         :hasUdiDi "(01)00380740009095" ;
+         rdfs:comment "Implantable ventricular assist device registered under MDR and associated with high-risk classification" ;
+         rdfs:label "HeartMate 3 LVAD" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001
+:FSCA-001 rdf:type owl:NamedIndividual ,
+                   :SafetyAlert ;
+          :relatedToIncident :INC-001 ;
+          :hasActionDate "2024-02-01"^^xsd:date ;
+          :hasAffectedCountries "EU-wide" ;
+          :hasAffectedDeviceCount 850 ;
+          :hasClosureDate "2026-01-01"^^xsd:date ;
+          :hasCorrectiveActionDescription "Safety alert issued to all implanting centres regarding anticoagulation protocol update for HeartMate 3 to reduce device thrombosis risk. INR target range revised to 2.0–3.0." ;
+          :hasEudamedFscaRef "EU-FSCA-2024-000001" ;
+          :hasScope "All HeartMate 3 LVAD units implanted since 2020" ;
+          rdfs:comment "Field safety corrective action related to incident INC-001" ;
+          rdfs:label "FSCA-001" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001
+:INC-001 rdf:type owl:NamedIndividual ,
+                  :SeriousIncident ;
+         :hasAssociatedRisk :RSK-003 ;
+         :reportedBy :MAN-001 ;
+         :reportedInCountry :DEU ;
+         :hasAffectedPatientAge 58 ;
+         :hasAffectedPatientSex "Male" ;
+         :hasDetectionDate "2024-01-10"^^xsd:date ;
+         :hasEudamedIncidentRef "EU-INC-2024-000001" ;
+         :hasEventDate "2024-01-08"^^xsd:date ;
+         :hasIncidentDescription "Patient implanted with HeartMate 3 LVAD developed ischemic stroke 6 months post-implant. Device thrombus confirmed by echocardiography." ;
+         :hasReportDate "2024-01-15"^^xsd:date ;
+         rdfs:comment "Serious incident associated with device thrombosis after implantation" ;
+         rdfs:label "INC-001" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL
+:IRL rdf:type owl:NamedIndividual ,
+              :Country ;
+     rdfs:comment "European Country" ;
+     rdfs:label "Ireland" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice
+:ImplantableActiveDevice rdf:type owl:NamedIndividual ,
+                                  :DeviceType ;
+                         :isActiveDevice "true"^^xsd:boolean ;
+                         :isImplantableDevice "true"^^xsd:boolean ;
+                         :isReusableDevice "false"^^xsd:boolean ;
+                         rdfs:comment "Device type for active implantable medical devices" ;
+                         rdfs:label "Implantable active device" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low
+:Low rdf:type owl:NamedIndividual ,
+              :Probability ;
+     rdfs:label "Low" ,
+                "Low probability level for a risk" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001
+:MAN-001 rdf:type owl:NamedIndividual ,
+                  :Manufacturer ;
+         :hasCountry :IRL ;
+         :hasAuthorizationNumber "IE/2017/001234" ;
+         :hasCompetentAuthority "HPRA" ;
+         :hasContactEmail "regulatory@medtronic.com" ;
+         :hasEudamedSrn "SRN-IE-MED-0001" ;
+         rdfs:comment "Manufacturer of medical devices based in Ireland" ;
+         rdfs:label "Medtronic plc" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR
+:MDR rdf:type owl:NamedIndividual ,
+              :RegulatoryFramework ;
+     rdfs:comment "European regulatory framework for medical devices under Regulation (EU) 2017/745" ;
+     rdfs:label "MDR" ;
+     rdfs:seeAlso "https://eur-lex.europa.eu/eli/reg/2017/745/oj/eng" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm
+:PatientHarm rdf:type owl:NamedIndividual ,
+                      :RiskCategory ;
+             rdfs:comment "Risk category related to harm caused to a patient" ;
+             rdfs:label "Patient harm" .
+
+
+###  http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003
+:RSK-003 rdf:type owl:NamedIndividual ,
+                  :InjuryRisk ;
+         :affectsDevice :DEV-001 ;
+         :affectsDeviceType :ImplantableActiveDevice ;
+         :hasCategory :PatientHarm ;
+         :hasProbability :Low ;
+         :hasSeverity :Critical ;
+         :hasImdrfCode "A0201" ;
+         :hasRiskDescription "Thrombus formation on device surface causing embolic events" ;
+         rdfs:comment "Risk associated with thrombus formation on the device surface causing embolic events" ;
+         rdfs:label "Thrombosis - device-related" .
+
+
+#################################################################
+#    General axioms
+#################################################################
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ContaminationRisk
+                :CybersecurityRisk
+                :DiagnosticRisk
+                :InfectionRisk
+                :InjuryRisk
+                :MalfunctionRisk
+                :MaterialRisk
+                :RadiationRisk
+                :SoftwareRisk
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :CorrectiveAction
+                :Country
+                :Device
+                :DeviceType
+                :Incident
+                :Manufacturer
+                :Probability
+                :RegulatoryFramework
+                :Risk
+                :RiskCategory
+                :RiskClass
+                :Severity
+              )
+] .
+
+
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :InSituCorrection
+                :Recall
+                :SafetyAlert
+                :UserNotice
+              )
+] .
+
+
+#################################################################
+#    Rules
+#################################################################
+
+<urn:swrl:var#d> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#t> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#i> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#c> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+<urn:swrl:var#r> rdf:type <http://www.w3.org/2003/11/swrl#Variable> .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Device ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasDeviceType ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :DeviceType ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :isImplantableDevice ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> "true"^^xsd:boolean
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :ImplantableDevice ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Incident ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#classPredicate> :CorrectiveAction ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#propertyPredicate> :relatedToIncident ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c> ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#i>
+                                                                           ] ;
+                                                                 rdf:rest rdf:nil
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :IncidentWithCorrectiveAction ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+[ rdf:type <http://www.w3.org/2003/11/swrl#Imp> ;
+   <http://www.w3.org/2003/11/swrl#body> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#classPredicate> :Risk ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#r>
+                                                     ] ;
+                                           rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                      rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                  <http://www.w3.org/2003/11/swrl#propertyPredicate> :affectsDeviceType ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#r> ;
+                                                                  <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t>
+                                                                ] ;
+                                                      rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                 rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#ClassAtom> ;
+                                                                             <http://www.w3.org/2003/11/swrl#classPredicate> :Device ;
+                                                                             <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d>
+                                                                           ] ;
+                                                                 rdf:rest [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                                                            rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#propertyPredicate> :hasDeviceType ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d> ;
+                                                                                        <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t>
+                                                                                      ] ;
+                                                                            rdf:rest rdf:nil
+                                                                          ]
+                                                               ]
+                                                    ]
+                                         ] ;
+   <http://www.w3.org/2003/11/swrl#head> [ rdf:type <http://www.w3.org/2003/11/swrl#AtomList> ;
+                                           rdf:first [ rdf:type <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> ;
+                                                       <http://www.w3.org/2003/11/swrl#propertyPredicate> :affectsDevice ;
+                                                       <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#r> ;
+                                                       <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#d>
+                                                     ] ;
+                                           rdf:rest rdf:nil
+                                         ]
+ ] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

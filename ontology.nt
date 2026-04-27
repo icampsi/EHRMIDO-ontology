@@ -1,0 +1,1001 @@
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+# 
+# 
+# #################################################################
+# #
+# #    Annotation properties
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2000/01/rdf-schema#sameAs
+<http://www.w3.org/2000/01/rdf-schema#sameAs> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AnnotationProperty> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Datatypes
+# #
+# #################################################################
+# 
+# 
+# http://www.w3.org/2001/XMLSchema#date
+<http://www.w3.org/2001/XMLSchema#date> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Datatype> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a risk to a specific device that may be affected by that risk" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice> <http://www.w3.org/2000/01/rdf-schema#label> "Affects Device" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a risk to a specific device type that may be affected by that risk" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType> <http://www.w3.org/2000/01/rdf-schema#label> "Affects device type" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates an incident to a specific risk that caused it" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Has associated Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a risk to a specific category of risks" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory> <http://www.w3.org/2000/01/rdf-schema#label> "Has category" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a risk to a manufacturer to a specific country of procedence" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry> <http://www.w3.org/2000/01/rdf-schema#label> "Has Country" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a device to a specific type" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType> <http://www.w3.org/2000/01/rdf-schema#label> "Has device type" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the probability for a risk to actually happend" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability> <http://www.w3.org/2000/01/rdf-schema#label> "Has Probability" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates the regulatory framework that legislates over a device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework> <http://www.w3.org/2000/01/rdf-schema#label> "has regulatory framework" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a device to a specific risk class" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass> <http://www.w3.org/2000/01/rdf-schema#label> "Has risk class" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity> <http://www.w3.org/2000/01/rdf-schema#label> "Classifies the severity of a risk" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity> <http://www.w3.org/2000/01/rdf-schema#label> "Has severity" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Manufactured by" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Relates a device to its manufacturer" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident> <http://www.w3.org/2000/01/rdf-schema#comment> "relates an incident to a specific corrective action taken around it" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident> <http://www.w3.org/2000/01/rdf-schema#label> "Related to incident" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Reported by" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy> <http://www.w3.org/2000/01/rdf-schema#label> "Specifies which manufacturer has reported a specific incident" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry> <http://www.w3.org/2000/01/rdf-schema#comment> "relates an incident to the country its been reported at" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry> <http://www.w3.org/2000/01/rdf-schema#label> "Reported in country" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether a corrective action has been taken in response to an incident" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken> <http://www.w3.org/2000/01/rdf-schema#label> "Corrective action taken" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether a corrective action has been taken in response to an incident" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate> <http://www.w3.org/2000/01/rdf-schema#label> "Action date" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries> <http://www.w3.org/2000/01/rdf-schema#comment> "Countries or regions affected by a corrective action" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries> <http://www.w3.org/2000/01/rdf-schema#label> "Affected countries" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount> <http://www.w3.org/2000/01/rdf-schema#comment> "Number of devices affected by a corrective action" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount> <http://www.w3.org/2000/01/rdf-schema#label> "Affected device count" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge> <http://www.w3.org/2000/01/rdf-schema#comment> "Age of the patient affected by an incident" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge> <http://www.w3.org/2000/01/rdf-schema#label> "Affected patient age" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex> <http://www.w3.org/2000/01/rdf-schema#comment> "Age of the patient affected by an incident" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex> <http://www.w3.org/2000/01/rdf-schema#label> "Affected patient sex" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber> <http://www.w3.org/2000/01/rdf-schema#comment> "Regulatory authorization number assigned to a manufacturer" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber> <http://www.w3.org/2000/01/rdf-schema#label> "Has authorization number" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate> <http://www.w3.org/2000/01/rdf-schema#label> "Closure date" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate> <http://www.w3.org/2000/01/rdf-schema#label> "Date on which a corrective action was closed" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority> <http://www.w3.org/2000/01/rdf-schema#comment> "Authority responsible for the regulation" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority> <http://www.w3.org/2000/01/rdf-schema#label> "Competent authority" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail> <http://www.w3.org/2000/01/rdf-schema#comment> "Email address used to contact the manufacturer" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail> <http://www.w3.org/2000/01/rdf-schema#label> "Contact email" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "Description of a corrective action" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription> <http://www.w3.org/2000/01/rdf-schema#label> "Corrective action description" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate> <http://www.w3.org/2000/01/rdf-schema#comment> "Date in which an incident was detected" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate> <http://www.w3.org/2000/01/rdf-schema#label> "Detection date" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef> <http://www.w3.org/2000/01/rdf-schema#label> "EUDAMED FSCA ref" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef> <http://www.w3.org/2000/01/rdf-schema#label> "EUDEMED reference number for a FSCA" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef> <http://www.w3.org/2000/01/rdf-schema#comment> "EUDAMED reference number for an incident" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef> <http://www.w3.org/2000/01/rdf-schema#label> "EUDAMED incident ref" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn> <http://www.w3.org/2000/01/rdf-schema#comment> "EUDAMED SRN" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn> <http://www.w3.org/2000/01/rdf-schema#comment> "Single Registration Number assigned to a manufacturer in EUDAMED" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate> <http://www.w3.org/2000/01/rdf-schema#label> "Event date" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate> <http://www.w3.org/2000/01/rdf-schema#label> "date in which the incident took place" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode> <http://www.w3.org/2000/01/rdf-schema#comment> "Code assigned to a risk according to the IMDRF terminology" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode> <http://www.w3.org/2000/01/rdf-schema#label> "IMDRF code" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "Description of an incident" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription> <http://www.w3.org/2000/01/rdf-schema#label> "Incident description" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose> <http://www.w3.org/2000/01/rdf-schema#comment> "Description of the intended medical purpose or use of a device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose> <http://www.w3.org/2000/01/rdf-schema#label> "Intended Purpose" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome> <http://www.w3.org/2000/01/rdf-schema#comment> "Result or consequence of an incident involving a medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome> <http://www.w3.org/2000/01/rdf-schema#label> "Outcome" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#date> .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription> <http://www.w3.org/2000/01/rdf-schema#comment> "Description of a risk" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription> <http://www.w3.org/2000/01/rdf-schema#label> "Risk description" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope> <http://www.w3.org/2000/01/rdf-schema#comment> "Scope" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope> <http://www.w3.org/2000/01/rdf-schema#comment> "The scope of a corrective action" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether a corrective action is closed" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus> <http://www.w3.org/2000/01/rdf-schema#label> "Status" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi> <http://www.w3.org/2000/01/rdf-schema#comment> "Unique Device Identifier assigned to a medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi> <http://www.w3.org/2000/01/rdf-schema#label> "UDI ID" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether a device is an active device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive> <http://www.w3.org/2000/01/rdf-schema#label> "Is active" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether a device Type represents an active device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice> <http://www.w3.org/2000/01/rdf-schema#label> "Is active device type" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates wether a device is implantable" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable> <http://www.w3.org/2000/01/rdf-schema#label> "Is implantable" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "indicates wether a device type represents an implantable device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice> <http://www.w3.org/2000/01/rdf-schema#label> "is implantable device type" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether a device is an in vitro diagnostic medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd> <http://www.w3.org/2000/01/rdf-schema#label> "is IVD" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates whether a device is reusable" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable> <http://www.w3.org/2000/01/rdf-schema#label> "Is reusable" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/2002/07/owl#topDataProperty> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates wether a device type represents a reusable device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice> <http://www.w3.org/2000/01/rdf-schema#label> "Is reusable device type" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "Medical device that depends on a power source" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice> <http://www.w3.org/2000/01/rdf-schema#label> "Active Device" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk involving external contaminant agents" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Contamination Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#onClass> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+_:genid1 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> <http://www.w3.org/2000/01/rdf-schema#comment> "Class representing a corrective action taken after an incident" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> <http://www.w3.org/2000/01/rdf-schema#label> "Corrective action" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> <http://www.w3.org/2000/01/rdf-schema#comment> "Class representing a territory related with the manufacturer of a device or an incident" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> <http://www.w3.org/2000/01/rdf-schema#label> "Country" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk related to the software security of the device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Cybersecurity Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid2 .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid2 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid9 .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid7 .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid5 .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid3 .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid4 .
+_:genid4 <http://www.w3.org/2002/07/owl#onClass> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+_:genid4 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid4 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy> .
+_:genid4 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid3 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid6 .
+_:genid6 <http://www.w3.org/2002/07/owl#onClass> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass> .
+_:genid6 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid6 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass> .
+_:genid6 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid5 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid8 .
+_:genid8 <http://www.w3.org/2002/07/owl#onClass> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework> .
+_:genid8 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid8 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework> .
+_:genid8 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid7 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid10 .
+_:genid10 <http://www.w3.org/2002/07/owl#onClass> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> .
+_:genid10 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid10 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType> .
+_:genid10 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid9 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> <http://www.w3.org/2000/01/rdf-schema#comment> "Medical device registered in the catalogue" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> <http://www.w3.org/2000/01/rdf-schema#label> "Device" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> <http://www.w3.org/2000/01/rdf-schema#comment> "Class encapsulating the type of a device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> <http://www.w3.org/2000/01/rdf-schema#label> "Device Type" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk related to incorrect or incomplete diagnostic results produced by a medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Diagnostic Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk class for medical devices under the IVDR regulatory framework" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass> <http://www.w3.org/2000/01/rdf-schema#label> "IVDR Risk Class" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "Medical device that should be implanted in the human body" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice> <http://www.w3.org/2000/01/rdf-schema#label> "Implantable Device" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection> <http://www.w3.org/2000/01/rdf-schema#comment> "Class representing a corrective action made in situ" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection> <http://www.w3.org/2000/01/rdf-schema#label> "In situ correction" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid11 .
+_:genid11 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+_:genid11 <http://www.w3.org/2002/07/owl#intersectionOf> _:genid14 .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid12 .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid13 .
+_:genid13 <http://www.w3.org/2002/07/owl#onClass> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+_:genid13 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid13 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy> .
+_:genid13 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid12 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid15 .
+_:genid15 <http://www.w3.org/2002/07/owl#onClass> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+_:genid15 <http://www.w3.org/2002/07/owl#minQualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid15 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk> .
+_:genid15 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+_:genid14 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> <http://www.w3.org/2000/01/rdf-schema#comment> "Class that represents an incident with a medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> <http://www.w3.org/2000/01/rdf-schema#label> "Incident" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction> <http://www.w3.org/2000/01/rdf-schema#comment> "Class that represents an incident that needs acorrectove action" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction> <http://www.w3.org/2000/01/rdf-schema#label> "Incident with corrective Action" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk of infection related to a medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Infection Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk that the device could cause an injury" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Injury Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk class for medical devices under the MDR regulatory framework" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass> <http://www.w3.org/2000/01/rdf-schema#label> "MDR Risk Class" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk of device malfunction" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Malfunction Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid16 .
+_:genid16 <http://www.w3.org/2002/07/owl#onClass> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> .
+_:genid16 <http://www.w3.org/2002/07/owl#qualifiedCardinality> "1"^^<http://www.w3.org/2001/XMLSchema#nonNegativeInteger> .
+_:genid16 <http://www.w3.org/2002/07/owl#onProperty> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry> .
+_:genid16 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> <http://www.w3.org/2000/01/rdf-schema#comment> "Manufacturer of a catalogued medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> <http://www.w3.org/2000/01/rdf-schema#label> "Manufacturer" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk related to the materials, substances or components used in a medical device." .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Material Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> <http://www.w3.org/2000/01/rdf-schema#comment> "General class representing any entity related to medical devices, risks, incidents, manufacturers or corrective actions" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> <http://www.w3.org/2000/01/rdf-schema#label> "Medical entity" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident> <http://www.w3.org/2002/07/owl#disjointWith> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident> <http://www.w3.org/2000/01/rdf-schema#comment> "Class representing a near miss incident with a medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident> <http://www.w3.org/2000/01/rdf-schema#label> "Near Miss Incident" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability> <http://www.w3.org/2000/01/rdf-schema#comment> "Probabilty for a risk  become an incient" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability> <http://www.w3.org/2000/01/rdf-schema#label> "Probability" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk for radiation of the devide" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Radiation Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall> <http://www.w3.org/2000/01/rdf-schema#comment> "Corrective action consisting of a recall" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall> <http://www.w3.org/2000/01/rdf-schema#label> "Recall" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework> <http://www.w3.org/2000/01/rdf-schema#comment> "Framework that regulates the medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework> <http://www.w3.org/2000/01/rdf-schema#label> "Regulatory Framework" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "Reusable medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice> <http://www.w3.org/2000/01/rdf-schema#label> "Reusable Device" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk related to a specific medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> <http://www.w3.org/2000/01/rdf-schema#label> "Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory> <http://www.w3.org/2000/01/rdf-schema#comment> "Category used to group risks according to their nature" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory> <http://www.w3.org/2000/01/rdf-schema#label> "Risk Category" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass> <http://www.w3.org/2000/01/rdf-schema#comment> "Cclassification used to indicate the risk level associated with a device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass> <http://www.w3.org/2000/01/rdf-schema#label> "Risk Class" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert> <http://www.w3.org/2000/01/rdf-schema#comment> "Class representing a safety alert as a corrective action" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert> <http://www.w3.org/2000/01/rdf-schema#label> "Safety Alert" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident> <http://www.w3.org/2000/01/rdf-schema#comment> "Class that represents an incident that had a serious impact" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident> <http://www.w3.org/2000/01/rdf-schema#label> "Serious Incident" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity> <http://www.w3.org/2000/01/rdf-schema#comment> "Classification of the severity of an incident" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity> <http://www.w3.org/2000/01/rdf-schema#label> "Severity" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk related to software malfunction of a medical device" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk> <http://www.w3.org/2000/01/rdf-schema#label> "Software Risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice> <http://www.w3.org/2000/01/rdf-schema#comment> "Corrective action consisting of a notice issued to users with relevant safety information or instructions" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice> <http://www.w3.org/2000/01/rdf-schema#label> "User Notice" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Individuals
+# #
+# #################################################################
+# 
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC> <http://www.w3.org/2000/01/rdf-schema#comment> "IVDR risk class C for in vitro diagnostic devices" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC> <http://www.w3.org/2000/01/rdf-schema#label> "Class C" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII> <http://www.w3.org/2000/01/rdf-schema#isDefinedBy> "Highest MDR risk class for medical devices" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII> <http://www.w3.org/2000/01/rdf-schema#label> "Class III" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical> <http://www.w3.org/2000/01/rdf-schema#comment> "Critical severity level for a risk" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical> <http://www.w3.org/2000/01/rdf-schema#label> "Critical" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU> <http://www.w3.org/2000/01/rdf-schema#comment> "European Country" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU> <http://www.w3.org/2000/01/rdf-schema#label> "Germany" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose> "Ventricular assist device for end-stage heart failure" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi> "(01)00380740009095" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.w3.org/2000/01/rdf-schema#comment> "Implantable ventricular assist device registered under MDR and associated with high-risk classification" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> <http://www.w3.org/2000/01/rdf-schema#label> "HeartMate 3 LVAD" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate> "2024-02-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries> "EU-wide" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount> "850"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate> "2026-01-01"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription> "Safety alert issued to all implanting centres regarding anticoagulation protocol update for HeartMate 3 to reduce device thrombosis risk. INR target range revised to 2.0–3.0." .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef> "EU-FSCA-2024-000001" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope> "All HeartMate 3 LVAD units implanted since 2020" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.w3.org/2000/01/rdf-schema#comment> "Field safety corrective action related to incident INC-001" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001> <http://www.w3.org/2000/01/rdf-schema#label> "FSCA-001" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge> "58"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex> "Male" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate> "2024-01-10"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef> "EU-INC-2024-000001" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate> "2024-01-08"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription> "Patient implanted with HeartMate 3 LVAD developed ischemic stroke 6 months post-implant. Device thrombus confirmed by echocardiography." .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate> "2024-01-15"^^<http://www.w3.org/2001/XMLSchema#date> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.w3.org/2000/01/rdf-schema#comment> "Serious incident associated with device thrombosis after implantation" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001> <http://www.w3.org/2000/01/rdf-schema#label> "INC-001" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL> <http://www.w3.org/2000/01/rdf-schema#comment> "European Country" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL> <http://www.w3.org/2000/01/rdf-schema#label> "Ireland" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice> "false"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice> <http://www.w3.org/2000/01/rdf-schema#comment> "Device type for active implantable medical devices" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice> <http://www.w3.org/2000/01/rdf-schema#label> "Implantable active device" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low> <http://www.w3.org/2000/01/rdf-schema#label> "Low" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low> <http://www.w3.org/2000/01/rdf-schema#label> "Low probability level for a risk" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber> "IE/2017/001234" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority> "HPRA" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail> "regulatory@medtronic.com" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn> "SRN-IE-MED-0001" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> <http://www.w3.org/2000/01/rdf-schema#comment> "Manufacturer of medical devices based in Ireland" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001> <http://www.w3.org/2000/01/rdf-schema#label> "Medtronic plc" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR> <http://www.w3.org/2000/01/rdf-schema#comment> "European regulatory framework for medical devices under Regulation (EU) 2017/745" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR> <http://www.w3.org/2000/01/rdf-schema#label> "MDR" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR> <http://www.w3.org/2000/01/rdf-schema#seeAlso> "https://eur-lex.europa.eu/eli/reg/2017/745/oj/eng" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk category related to harm caused to a patient" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm> <http://www.w3.org/2000/01/rdf-schema#label> "Patient harm" .
+# 
+# http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#NamedIndividual> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical> .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode> "A0201" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription> "Thrombus formation on device surface causing embolic events" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.w3.org/2000/01/rdf-schema#comment> "Risk associated with thrombus formation on the device surface causing embolic events" .
+<http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003> <http://www.w3.org/2000/01/rdf-schema#label> "Thrombosis - device-related" .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    General axioms
+# #
+# #################################################################
+# 
+# 
+_:genid17 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid17 <http://www.w3.org/2002/07/owl#members> _:genid26 .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid25 .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid24 .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid23 .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid22 .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid21 .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid20 .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid19 .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid18 .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk> .
+_:genid18 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk> .
+_:genid19 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk> .
+_:genid20 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk> .
+_:genid21 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk> .
+_:genid22 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk> .
+_:genid23 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk> .
+_:genid24 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk> .
+_:genid25 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk> .
+_:genid26 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid27 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid27 <http://www.w3.org/2002/07/owl#members> _:genid39 .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid38 .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid37 .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid36 .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid35 .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid34 .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid33 .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid32 .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid31 .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid30 .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid29 .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid28 .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity> .
+_:genid28 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass> .
+_:genid29 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory> .
+_:genid30 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+_:genid31 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework> .
+_:genid32 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability> .
+_:genid33 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer> .
+_:genid34 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+_:genid35 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> .
+_:genid36 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+_:genid37 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country> .
+_:genid38 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+_:genid39 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+_:genid40 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#AllDisjointClasses> .
+_:genid40 <http://www.w3.org/2002/07/owl#members> _:genid44 .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid43 .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid42 .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid41 .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice> .
+_:genid41 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert> .
+_:genid42 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall> .
+_:genid43 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection> .
+_:genid44 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#List> .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Rules
+# #
+# #################################################################
+# 
+# 
+<urn:swrl:var#d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl:var#t> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl:var#i> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl:var#c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+<urn:swrl:var#r> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Variable> .
+_:genid45 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid45 <http://www.w3.org/2003/11/swrl#body> _:genid52 .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid50 .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid48 .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid46 .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid47 .
+_:genid47 <http://www.w3.org/2003/11/swrl#argument2> "true"^^<http://www.w3.org/2001/XMLSchema#boolean> .
+_:genid47 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t> .
+_:genid47 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice> .
+_:genid47 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom> .
+_:genid46 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid49 .
+_:genid49 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#t> .
+_:genid49 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType> .
+_:genid49 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid48 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid51 .
+_:genid51 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t> .
+_:genid51 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d> .
+_:genid51 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType> .
+_:genid51 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid50 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid53 .
+_:genid53 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d> .
+_:genid53 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+_:genid53 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid52 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid45 <http://www.w3.org/2003/11/swrl#head> _:genid54 .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid55 .
+_:genid55 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d> .
+_:genid55 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice> .
+_:genid55 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid54 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid56 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid56 <http://www.w3.org/2003/11/swrl#body> _:genid61 .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid59 .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid57 .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid58 .
+_:genid58 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#i> .
+_:genid58 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c> .
+_:genid58 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident> .
+_:genid58 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid57 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid60 .
+_:genid60 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#c> .
+_:genid60 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction> .
+_:genid60 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid59 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid62 .
+_:genid62 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i> .
+_:genid62 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident> .
+_:genid62 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid61 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid56 <http://www.w3.org/2003/11/swrl#head> _:genid63 .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid64 .
+_:genid64 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#i> .
+_:genid64 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction> .
+_:genid64 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid63 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid65 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#Imp> .
+_:genid65 <http://www.w3.org/2003/11/swrl#body> _:genid72 .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid70 .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid68 .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> _:genid66 .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid67 .
+_:genid67 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t> .
+_:genid67 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d> .
+_:genid67 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType> .
+_:genid67 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid66 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid69 .
+_:genid69 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#d> .
+_:genid69 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device> .
+_:genid69 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid68 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid71 .
+_:genid71 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#t> .
+_:genid71 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#r> .
+_:genid71 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType> .
+_:genid71 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid70 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid73 .
+_:genid73 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#r> .
+_:genid73 <http://www.w3.org/2003/11/swrl#classPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk> .
+_:genid73 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#ClassAtom> .
+_:genid72 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+_:genid65 <http://www.w3.org/2003/11/swrl#head> _:genid74 .
+_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#rest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#nil> .
+_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#first> _:genid75 .
+_:genid75 <http://www.w3.org/2003/11/swrl#argument2> <urn:swrl:var#d> .
+_:genid75 <http://www.w3.org/2003/11/swrl#argument1> <urn:swrl:var#r> .
+_:genid75 <http://www.w3.org/2003/11/swrl#propertyPredicate> <http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice> .
+_:genid75 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#IndividualPropertyAtom> .
+_:genid74 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2003/11/swrl#AtomList> .
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

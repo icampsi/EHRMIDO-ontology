@@ -1,0 +1,3153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="resources/primer.css" media="screen"/>
+<link rel="stylesheet" href="resources/rec.css" media="screen"/>
+<link rel="stylesheet" href="resources/extra.css" media="screen"/>
+<link rel="stylesheet" href="resources/owl.css" media="screen"/>
+<link rel="stylesheet" href="resources/dark.css" media="(prefers-color-scheme: dark)"/>
+<link rel="stylesheet" href="resources/light.css" media="(prefers-color-scheme: light)"/>
+<link rel="stylesheet" href="resources/slider.css" media="screen"/>
+<meta name="color-scheme" content="dark light">
+<script type="module" src="resources/dark-mode-toggle.mjs"></script><div class="darkmode">
+	<dark-mode-toggle class="slider"></dark-mode-toggle>
+</div>
+ <title>European High-Risk Medical Device Ontology</title>
+
+
+<!-- SCHEMA.ORG METADATA -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"TechArticle","url":"http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO","image":"http://vowl.visualdataweb.org/webvowl/#iri=http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO","name":"European High-Risk Medical Device Ontology", "headline":"Ontology for representing European high-risk medical devices, manufacturers, regulatory risk classes, identified risks, incidents and field safety corrective actions based on EUDAMED-related data", "dateReleased":"2026-04-20", "dateModified":"2026-04-27", "author":[{"@type":"Person","name":"Ignasi Camps"}]}</script>
+
+<script src="resources/jquery.js"></script> 
+<script src="resources/marked.min.js"></script> 
+    <script> 
+function loadHash() {
+  jQuery(".markdown").each(function(el){jQuery(this).after(marked.parse(jQuery(this).text())).remove()});
+	var hash = location.hash;
+	if($(hash).offset()!=null){
+	  $('html, body').animate({scrollTop: $(hash).offset().top}, 0);
+}
+	loadTOC();
+}
+function loadTOC(){
+	//process toc dynamically
+	  var t='<h2>Table of contents</h2><ul>';i = 1;j=0;
+	  jQuery(".list").each(function(){
+		if(jQuery(this).is('h2')){
+			if(j>0){
+				t+='</ul>';
+				j=0;
+			}
+			t+= '<li>'+i+'. <a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+			i++;
+		}
+		if(jQuery(this).is('h3')){
+			if(j==0){
+				t+='<ul>';
+			}
+			j++;
+			t+= '<li>'+(i-1)+'.'+j+'. '+'<a href=#'+ jQuery(this).attr('id')+'>'+ jQuery(this).ignore("span").text()+'</a></li>';
+		}
+	  });
+	  t+='</ul>';
+	  $("#toc").html(t); 
+}
+$(function(){
+    loadHash();
+}); $.fn.ignore = function(sel){
+        return this.clone().find(sel||">*").remove().end();
+ }; 
+   </script> 
+  </head> 
+
+<body>
+<div class="container">
+<div class="head">
+<div style="float:right">language <a href="index-en.html"><b>en</b></a> </div>
+<h1>European High-Risk Medical Device Ontology</h1>
+<h2>Release: 2026-04-20</h2>
+
+
+<dl>
+<dt>Modified on: 2026-04-27</dt>
+<dt>Latest version:</dt>
+<dd><a href="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO">http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO</a></dd>
+<dt>Issued on:</dt>
+<dd>Date issued</dd>
+<dt>Authors:</dt>
+<dd>Ignasi Camps<a href="mailto:icampsil@uoc.edu">&#9993;</a></dd>
+
+<dt>Download serialization:</dt><dd><span><a href="ontology.jsonld" target="_blank"><img src="https://img.shields.io/badge/Format-JSON_LD-blue.svg" alt="JSON-LD" /></a> </span><span><a href="ontology.owl" target="_blank"><img src="https://img.shields.io/badge/Format-RDF/XML-blue.svg" alt="RDF/XML" /></a> </span><span><a href="ontology.nt" target="_blank"><img src="https://img.shields.io/badge/Format-N_Triples-blue.svg" alt="N-Triples" /></a> </span><span><a href="ontology.ttl" target="_blank"><img src="https://img.shields.io/badge/Format-TTL-blue.svg" alt="TTL" /></a> </span></dd><dt>License:</dt><dd><a href="http://insertlicenseURIhere.example.org" target="_blank"><img src="https://img.shields.io/badge/License-license%20name%20goes%20here-blue.svg" alt="http://insertlicenseURIhere.example.org" /></a>
+</dd><dt>Visualization:</dt><dd><a href="webvowl/index.html#" target="_blank"><img src="https://img.shields.io/badge/Visualize_with-WebVowl-blue.svg" alt="Visualize with WebVowl" /></a></dd>
+<!-- <dt>Evaluation:</dt><dd><a href="OOPSevaluation/oopsEval.html#" target="_blank"><img src="https://img.shields.io/badge/Evaluate_with-OOPS! (OntOlogy Pitfall Scanner!)-blue.svg" alt="Evaluate with OOPS!" /></a></dd> --></dl>
+
+<a href="provenance/provenance-en.html" target="_blank">Provenance of this page</a><hr/>
+</div>
+<div class="status">
+<div>
+<span>Ontology Specification Draft</span>
+</div>
+</div>     <div id="abstract"><h2>Abstract</h2><span class="markdown">
+Ontology for representing European high-risk medical devices, manufacturers, regulatory risk classes, identified risks, incidents and field safety corrective actions based on EUDAMED-related data</span>
+</div>
+<div id="toc"></div> 
+
+<!--INTRODUCTION SECTION-->
+    <div id="introduction"><h2 id="intro" class="list">Introduction <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">This ontology models a catalogue of European high-risk medical devices and in vitro diagnostic devices.</span>
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>EHRMIDO</b></td><td>&lt;http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#&gt;</td></tr>
+<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO/&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>swrl</b></td><td>&lt;http://www.w3.org/2003/11/swrl#&gt;</td></tr>
+<tr><td><b>swrlb</b></td><td>&lt;http://www.w3.org/2003/11/swrlb#&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+  
+
+<!--OVERVIEW SECTION-->
+    <div id="overview"><h2 id="overv" class="list">European High-Risk Medical Device Ontology: Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+This ontology has the following classes and properties.</span>
+<h4>Classes</h4>
+<ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#ActiveDevice"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice">Active Device</a>
+   </li>
+   <li>
+      <a href="#ContaminationRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a>
+   </li>
+   <li>
+      <a href="#CorrectiveAction"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a>
+   </li>
+   <li>
+      <a href="#Country"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a>
+   </li>
+   <li>
+      <a href="#CybersecurityRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a>
+   </li>
+   <li>
+      <a href="#Device"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a>
+   </li>
+   <li>
+      <a href="#DeviceType"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a>
+   </li>
+   <li>
+      <a href="#DiagnosticRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a>
+   </li>
+   <li>
+      <a href="#ImplantableDevice"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice">Implantable Device</a>
+   </li>
+   <li>
+      <a href="#InSituCorrection"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection">In situ correction</a>
+   </li>
+   <li>
+      <a href="#Incident"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a>
+   </li>
+   <li>
+      <a href="#IncidentWithCorrectiveAction"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction">Incident with corrective Action</a>
+   </li>
+   <li>
+      <a href="#InfectionRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a>
+   </li>
+   <li>
+      <a href="#InjuryRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a>
+   </li>
+   <li>
+      <a href="#IVDRRiskClass"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass">IVDR Risk Class</a>
+   </li>
+   <li>
+      <a href="#MalfunctionRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a>
+   </li>
+   <li>
+      <a href="#Manufacturer"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a>
+   </li>
+   <li>
+      <a href="#MaterialRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a>
+   </li>
+   <li>
+      <a href="#MDRRiskClass"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass">MDR Risk Class</a>
+   </li>
+   <li>
+      <a href="#MedicalEntity"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a>
+   </li>
+   <li>
+      <a href="#NearMissIncident"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident">Near Miss Incident</a>
+   </li>
+   <li>
+      <a href="#Probability"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a>
+   </li>
+   <li>
+      <a href="#RadiationRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a>
+   </li>
+   <li>
+      <a href="#Recall"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall">Recall</a>
+   </li>
+   <li>
+      <a href="#RegulatoryFramework"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a>
+   </li>
+   <li>
+      <a href="#ReusableDevice"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice">Reusable Device</a>
+   </li>
+   <li>
+      <a href="#Risk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a>
+   </li>
+   <li>
+      <a href="#RiskCategory"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a>
+   </li>
+   <li>
+      <a href="#RiskClass"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a>
+   </li>
+   <li>
+      <a href="#SafetyAlert"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert">Safety Alert</a>
+   </li>
+   <li>
+      <a href="#SeriousIncident"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident">Serious Incident</a>
+   </li>
+   <li>
+      <a href="#Severity"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a>
+   </li>
+   <li>
+      <a href="#SoftwareRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a>
+   </li>
+   <li>
+      <a href="#UserNotice"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice">User Notice</a>
+   </li>
+</ul><h4>Object Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#affectsDevice"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice">Affects Device</a>
+   </li>
+   <li>
+      <a href="#affectsDeviceType"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType">Affects device type</a>
+   </li>
+   <li>
+      <a href="#hasSeverity"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity">Classifies the severity of a risk</a>
+   </li>
+   <li>
+      <a href="#hasAssociatedRisk"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk">Has associated Risk</a>
+   </li>
+   <li>
+      <a href="#hasCategory"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory">Has category</a>
+   </li>
+   <li>
+      <a href="#hasCountry"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry">Has Country</a>
+   </li>
+   <li>
+      <a href="#hasDeviceType"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType">Has device type</a>
+   </li>
+   <li>
+      <a href="#hasProbability"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability">Has Probability</a>
+   </li>
+   <li>
+      <a href="#hasRegulatoryFramework"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework">has regulatory framework</a>
+   </li>
+   <li>
+      <a href="#hasRiskClass"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass">Has risk class</a>
+   </li>
+   <li>
+      <a href="#manufacturedBy"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy">Manufactured by</a>
+   </li>
+   <li>
+      <a href="#relatedToIncident"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident">Related to incident</a>
+   </li>
+   <li>
+      <a href="#reportedBy"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy">Reported by</a>
+   </li>
+   <li>
+      <a href="#reportedInCountry"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry">Reported in country</a>
+   </li>
+</ul><h4>Data Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#hasActionDate"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate">Action date</a>
+   </li>
+   <li>
+      <a href="#hasAffectedCountries"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries">Affected countries</a>
+   </li>
+   <li>
+      <a href="#hasAffectedDeviceCount"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount">Affected device count</a>
+   </li>
+   <li>
+      <a href="#hasAffectedPatientAge"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge">Affected patient age</a>
+   </li>
+   <li>
+      <a href="#hasAffectedPatientSex"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex">Affected patient sex</a>
+   </li>
+   <li>
+      <a href="#hasClosureDate"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate">Closure date</a>
+   </li>
+   <li>
+      <a href="#hasCompetentAuthority"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority">Competent authority</a>
+   </li>
+   <li>
+      <a href="#hasContactEmail"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail">Contact email</a>
+   </li>
+   <li>
+      <a href="#hasCorrectiveActionDescription"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription">Corrective action description</a>
+   </li>
+   <li>
+      <a href="#correctiveActionTaken"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken">Corrective action taken</a>
+   </li>
+   <li>
+      <a href="#hasDetectionDate"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate">Detection date</a>
+   </li>
+   <li>
+      <a href="#hasEudamedFscaRef"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef">EUDAMED FSCA ref</a>
+   </li>
+   <li>
+      <a href="#hasEudamedIncidentRef"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef">EUDAMED incident ref</a>
+   </li>
+   <li>
+      <a href="#hasEventDate"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate">Event date</a>
+   </li>
+   <li>
+      <a href="#hasAuthorizationNumber"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber">Has authorization number</a>
+   </li>
+   <li>
+      <a href="#hasEudamedSrn"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn">
+         <span>has Eudamed Srn</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasReportDate"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate">
+         <span>has Report Date</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasScope"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope">
+         <span>has Scope</span>
+      </a>
+   </li>
+   <li>
+      <a href="#hasImdrfCode"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode">IMDRF code</a>
+   </li>
+   <li>
+      <a href="#hasIncidentDescription"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription">Incident description</a>
+   </li>
+   <li>
+      <a href="#hasIntendedPurpose"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose">Intended Purpose</a>
+   </li>
+   <li>
+      <a href="#isActive"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive">Is active</a>
+   </li>
+   <li>
+      <a href="#isActiveDevice"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice">Is active device type</a>
+   </li>
+   <li>
+      <a href="#isImplantable"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable">Is implantable</a>
+   </li>
+   <li>
+      <a href="#isImplantableDevice"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice">is implantable device type</a>
+   </li>
+   <li>
+      <a href="#isIvd"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd">is IVD</a>
+   </li>
+   <li>
+      <a href="#isReusable"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable">Is reusable</a>
+   </li>
+   <li>
+      <a href="#isReusableDevice"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice">Is reusable device type</a>
+   </li>
+   <li>
+      <a href="#hasOutcome"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome">Outcome</a>
+   </li>
+   <li>
+      <a href="#hasRiskDescription"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription">Risk description</a>
+   </li>
+   <li>
+      <a href="#hasStatus"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus">Status</a>
+   </li>
+   <li>
+      <a href="#hasUdiDi"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi">UDI ID</a>
+   </li>
+</ul><h4>Annotation Properties</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#http://www.w3.org/2000/01/rdf-schema#sameAs" title="http://www.w3.org/2000/01/rdf-schema#sameAs">
+         <span>same As</span>
+      </a>
+   </li>
+</ul><h4>Named Individuals</h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#ClassC"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC">Class C</a>
+   </li>
+   <li>
+      <a href="#ClassIII"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII">Class III</a>
+   </li>
+   <li>
+      <a href="#Critical"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical">Critical</a>
+   </li>
+   <li>
+      <a href="#FSCA-001"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001">FSCA-001</a>
+   </li>
+   <li>
+      <a href="#DEU"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU">Germany</a>
+   </li>
+   <li>
+      <a href="#DEV-001"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001">HeartMate 3 LVAD</a>
+   </li>
+   <li>
+      <a href="#ImplantableActiveDevice"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice">Implantable active device</a>
+   </li>
+   <li>
+      <a href="#INC-001"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001">INC-001</a>
+   </li>
+   <li>
+      <a href="#IRL"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL">Ireland</a>
+   </li>
+   <li>
+      <a href="#Low"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low">Low</a>
+   </li>
+   <li>
+      <a href="#MDR"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR">MDR</a>
+   </li>
+   <li>
+      <a href="#MAN-001"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001">Medtronic plc</a>
+   </li>
+   <li>
+      <a href="#PatientHarm"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm">Patient harm</a>
+   </li>
+   <li>
+      <a href="#RSK-003"
+         title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003">Thrombosis - device-related</a>
+   </li>
+</ul><h4> SWRL Rules </h4><ul xmlns:widoco="https://w3id.org/widoco/vocab#"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    class="hlist">
+   <li>
+      <a href="#d4e1744">Rule #1</a>
+   </li>
+   <li>
+      <a href="#d4e1858">Rule #2</a>
+   </li>
+   <li>
+      <a href="#d4e1949">Rule #3</a>
+   </li>
+</ul><iframe src="webvowl/index.html"></iframe> 
+</div>
+  
+
+<!--DESCRIPTION SECTION-->
+    <div id="description"><h2 id="desc" class="list">European High-Risk Medical Device Ontology: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">Ontology for representing European high-risk medical devices, manufacturers, regulatory risk classes, identified risks, incidents and field safety corrective actions based on EUDAMED-related data.</span></div>
+   
+
+<!--CROSSREF SECTION-->
+   <div id="crossref"><h2 id="crossreference" class="list">Cross-reference for European High-Risk Medical Device Ontology classes, object properties and data properties <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+This section provides details for each class and property defined by European High-Risk Medical Device Ontology.
+<div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="classes">
+ <h3 id="classes-headline" class="list">Classes</h3>
+ <ul class="hlist">
+  <li><a href="#ActiveDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice">Active Device</a></li>
+  <li><a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a></li>
+  <li><a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a></li>
+  <li><a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a></li>
+  <li><a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a></li>
+  <li><a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a></li>
+  <li><a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a></li>
+  <li><a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a></li>
+  <li><a href="#ImplantableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice">Implantable Device</a></li>
+  <li><a href="#InSituCorrection" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection">In situ correction</a></li>
+  <li><a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a></li>
+  <li><a href="#IncidentWithCorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction">Incident with corrective Action</a></li>
+  <li><a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a></li>
+  <li><a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a></li>
+  <li><a href="#IVDRRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass">IVDR Risk Class</a></li>
+  <li><a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a></li>
+  <li><a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a></li>
+  <li><a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a></li>
+  <li><a href="#MDRRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass">MDR Risk Class</a></li>
+  <li><a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a></li>
+  <li><a href="#NearMissIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident">Near Miss Incident</a></li>
+  <li><a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a></li>
+  <li><a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a></li>
+  <li><a href="#Recall" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall">Recall</a></li>
+  <li><a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a></li>
+  <li><a href="#ReusableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice">Reusable Device</a></li>
+  <li><a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a></li>
+  <li><a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a></li>
+  <li><a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a></li>
+  <li><a href="#SafetyAlert" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert">Safety Alert</a></li>
+  <li><a href="#SeriousIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident">Serious Incident</a></li>
+  <li><a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a></li>
+  <li><a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a></li>
+  <li><a href="#UserNotice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice">User Notice</a></li>
+ </ul>
+ <div class="entity" id="ActiveDevice">
+  <h3>Active Device<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice</p>
+  <div class="comment">
+   <span class="markdown">Medical device that depends on a power source</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ContaminationRisk">
+  <h3>Contamination Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk</p>
+  <div class="comment">
+   <span class="markdown">Risk involving external contaminant agents</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CorrectiveAction">
+  <h3>Corrective action<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction</p>
+  <div class="comment">
+   <span class="markdown">Class representing a corrective action taken after an incident</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#InSituCorrection" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection">In situ correction</a> <sup class="type-c" title="class">c</sup>, <a href="#Recall" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall">Recall</a> <sup class="type-c" title="class">c</sup>, <a href="#SafetyAlert" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert">Safety Alert</a> <sup class="type-c" title="class">c</sup>, <a href="#UserNotice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice">User Notice</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasActionDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate">Action date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAffectedCountries" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries">Affected countries</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAffectedDeviceCount" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount">Affected device count</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasClosureDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate">Closure date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasCorrectiveActionDescription" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription">Corrective action description</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasEudamedFscaRef" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef">EUDAMED FSCA ref</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#relatedToIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident">Related to incident</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasStatus" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus">Status</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasScope" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope">has Scope</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Country">
+  <h3>Country<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country</p>
+  <div class="comment">
+   <span class="markdown">Class representing a territory related with the manufacturer of a device or an incident</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasCountry" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry">Has Country</a> <sup class="type-op" title="object property">op</sup>, <a href="#reportedInCountry" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry">Reported in country</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#DEU" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU">Germany</a> <sup class="type-ni" title="named individual">ni</sup>, <a href="#IRL" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL">Ireland</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="CybersecurityRisk">
+  <h3>Cybersecurity Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk</p>
+  <div class="comment">
+   <span class="markdown">Risk related to the software security of the device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Device">
+  <h3>Device<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device</p>
+  <div class="comment">
+   <span class="markdown">Medical device registered in the catalogue</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ActiveDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ActiveDevice">Active Device</a> <sup class="type-c" title="class">c</sup>, <a href="#ImplantableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice">Implantable Device</a> <sup class="type-c" title="class">c</sup>, <a href="#ReusableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice">Reusable Device</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType">Has device type</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass">Has risk class</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIntendedPurpose" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose">Intended Purpose</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isActive" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive">Is active</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isImplantable" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable">Is implantable</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isReusable" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable">Is reusable</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#manufacturedBy" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy">Manufactured by</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasUdiDi" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi">UDI ID</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework">has regulatory framework</a> <sup class="type-op" title="object property">op</sup>, <a href="#isIvd" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd">is IVD</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#affectsDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice">Affects Device</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#DEV-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001">HeartMate 3 LVAD</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DeviceType">
+  <h3>Device Type<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType</p>
+  <div class="comment">
+   <span class="markdown">Class encapsulating the type of a device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#isActiveDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice">Is active device type</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isReusableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice">Is reusable device type</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#isImplantableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice">is implantable device type</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#affectsDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType">Affects device type</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType">Has device type</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#ImplantableActiveDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice">Implantable active device</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DiagnosticRisk">
+  <h3>Diagnostic Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk</p>
+  <div class="comment">
+   <span class="markdown">Risk related to incorrect or incomplete diagnostic results produced by a medical device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ImplantableDevice">
+  <h3>Implantable Device<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice</p>
+  <div class="comment">
+   <span class="markdown">Medical device that should be implanted in the human body</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="InSituCorrection">
+  <h3>In situ correction<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection</p>
+  <div class="comment">
+   <span class="markdown">Class representing a corrective action made in situ</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#Recall" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall">Recall</a> <sup class="type-c" title="class">c</sup>, <a href="#SafetyAlert" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert">Safety Alert</a> <sup class="type-c" title="class">c</sup>, <a href="#UserNotice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice">User Notice</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Incident">
+  <h3>Incident<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident</p>
+  <div class="comment">
+   <span class="markdown">Class that represents an incident with a medical device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#IncidentWithCorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction">Incident with corrective Action</a> <sup class="type-c" title="class">c</sup>, <a href="#NearMissIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident">Near Miss Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#SeriousIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident">Serious Incident</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasAffectedPatientAge" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge">Affected patient age</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAffectedPatientSex" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex">Affected patient sex</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#correctiveActionTaken" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken">Corrective action taken</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasDetectionDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate">Detection date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasEudamedIncidentRef" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef">EUDAMED incident ref</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasEventDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate">Event date</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasAssociatedRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk">Has associated Risk</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasIncidentDescription" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription">Incident description</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasOutcome" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome">Outcome</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#reportedBy" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy">Reported by</a> <sup class="type-op" title="object property">op</sup>, <a href="#reportedInCountry" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry">Reported in country</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasReportDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate">has Report Date</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#relatedToIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident">Related to incident</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="IncidentWithCorrectiveAction">
+  <h3>Incident with corrective Action<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction</p>
+  <div class="comment">
+   <span class="markdown">Class that represents an incident that needs acorrectove action</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="InfectionRisk">
+  <h3>Infection Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk</p>
+  <div class="comment">
+   <span class="markdown">Risk of infection related to a medical device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="InjuryRisk">
+  <h3>Injury Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk</p>
+  <div class="comment">
+   <span class="markdown">Risk that the device could cause an injury</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#RSK-003" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003">Thrombosis - device-related</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="IVDRRiskClass">
+  <h3>IVDR Risk Class<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass</p>
+  <div class="comment">
+   <span class="markdown">Risk class for medical devices under the IVDR regulatory framework</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#ClassC" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC">Class C</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#MDRRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass">MDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MalfunctionRisk">
+  <h3>Malfunction Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk</p>
+  <div class="comment">
+   <span class="markdown">Risk of device malfunction</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Manufacturer">
+  <h3>Manufacturer<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer</p>
+  <div class="comment">
+   <span class="markdown">Manufacturer of a catalogued medical device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#hasCompetentAuthority" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority">Competent authority</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasContactEmail" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail">Contact email</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasCountry" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry">Has Country</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasAuthorizationNumber" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber">Has authorization number</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasEudamedSrn" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn">has Eudamed Srn</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#manufacturedBy" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy">Manufactured by</a> <sup class="type-op" title="object property">op</sup>, <a href="#reportedBy" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy">Reported by</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#MAN-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001">Medtronic plc</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MaterialRisk">
+  <h3>Material Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk</p>
+  <div class="comment">
+   <span class="markdown">Risk related to the materials, substances or components used in a medical device.</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MDRRiskClass">
+  <h3>MDR Risk Class<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass</p>
+  <div class="comment">
+   <span class="markdown">Risk class for medical devices under the MDR regulatory framework</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#ClassIII" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII">Class III</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#IVDRRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass">IVDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MedicalEntity">
+  <h3>Medical entity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity</p>
+  <div class="comment">
+   <span class="markdown">General class representing any entity related to medical devices, risks, incidents, manufacturers or corrective actions</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="NearMissIncident">
+  <h3>Near Miss Incident<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident</p>
+  <div class="comment">
+   <span class="markdown">Class representing a near miss incident with a medical device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#SeriousIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident">Serious Incident</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Probability">
+  <h3>Probability<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability</p>
+  <div class="comment">
+   <span class="markdown">Probabilty for a risk become an incient</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasProbability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability">Has Probability</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Low" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low">Low</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RadiationRisk">
+  <h3>Radiation Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk</p>
+  <div class="comment">
+   <span class="markdown">Risk for radiation of the devide</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Recall">
+  <h3>Recall<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall</p>
+  <div class="comment">
+   <span class="markdown">Corrective action consisting of a recall</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#InSituCorrection" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection">In situ correction</a> <sup class="type-c" title="class">c</sup>, <a href="#SafetyAlert" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert">Safety Alert</a> <sup class="type-c" title="class">c</sup>, <a href="#UserNotice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice">User Notice</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RegulatoryFramework">
+  <h3>Regulatory Framework<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework</p>
+  <div class="comment">
+   <span class="markdown">Framework that regulates the medical device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasRegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework">has regulatory framework</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#MDR" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR">MDR</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ReusableDevice">
+  <h3>Reusable Device<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ReusableDevice</p>
+  <div class="comment">
+   <span class="markdown">Reusable medical device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Risk">
+  <h3>Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk</p>
+  <div class="comment">
+   <span class="markdown">Risk related to a specific medical device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#SoftwareRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk">Software Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in domain of
+   </dt>
+   <dd>
+    <a href="#affectsDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice">Affects Device</a> <sup class="type-op" title="object property">op</sup>, <a href="#affectsDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType">Affects device type</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasSeverity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity">Classifies the severity of a risk</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasProbability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability">Has Probability</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory">Has category</a> <sup class="type-op" title="object property">op</sup>, <a href="#hasImdrfCode" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode">IMDRF code</a> <sup class="type-dp" title="data property">dp</sup>, <a href="#hasRiskDescription" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription">Risk description</a> <sup class="type-dp" title="data property">dp</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasAssociatedRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk">Has associated Risk</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RiskCategory">
+  <h3>Risk Category<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory</p>
+  <div class="comment">
+   <span class="markdown">Category used to group risks according to their nature</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory">Has category</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#PatientHarm" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm">Patient harm</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RiskClass">
+  <h3>Risk Class<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass</p>
+  <div class="comment">
+   <span class="markdown">Cclassification used to indicate the risk level associated with a device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has sub-classes
+   </dt>
+   <dd>
+    <a href="#IVDRRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass">IVDR Risk Class</a> <sup class="type-c" title="class">c</sup>, <a href="#MDRRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass">MDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass">Has risk class</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SafetyAlert">
+  <h3>Safety Alert<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert</p>
+  <div class="comment">
+   <span class="markdown">Class representing a safety alert as a corrective action</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#FSCA-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001">FSCA-001</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#InSituCorrection" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection">In situ correction</a> <sup class="type-c" title="class">c</sup>, <a href="#Recall" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall">Recall</a> <sup class="type-c" title="class">c</sup>, <a href="#UserNotice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice">User Notice</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SeriousIncident">
+  <h3>Serious Incident<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident</p>
+  <div class="comment">
+   <span class="markdown">Class that represents an incident that had a serious impact</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#INC-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001">INC-001</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#NearMissIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#NearMissIncident">Near Miss Incident</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Severity">
+  <h3>Severity<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity</p>
+  <div class="comment">
+   <span class="markdown">Classification of the severity of an incident</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#MedicalEntity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity">Medical entity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is in range of
+   </dt>
+   <dd>
+    <a href="#hasSeverity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity">Classifies the severity of a risk</a> <sup class="type-op" title="object property">op</sup>
+   </dd>
+   <dt>
+    has members
+   </dt>
+   <dd>
+    <a href="#Critical" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical">Critical</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>, <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>, <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>, <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>, <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>, <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>, <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>, <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>, <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>, <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="SoftwareRisk">
+  <h3>Software Risk<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SoftwareRisk</p>
+  <div class="comment">
+   <span class="markdown">Risk related to software malfunction of a medical device</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#ContaminationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ContaminationRisk">Contamination Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#CybersecurityRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CybersecurityRisk">Cybersecurity Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#DiagnosticRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DiagnosticRisk">Diagnostic Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InfectionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InfectionRisk">Infection Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MalfunctionRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MalfunctionRisk">Malfunction Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#MaterialRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MaterialRisk">Material Risk</a> <sup class="type-c" title="class">c</sup>, <a href="#RadiationRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RadiationRisk">Radiation Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="UserNotice">
+  <h3>User Notice<sup class="type-c" title="class">c</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#UserNotice</p>
+  <div class="comment">
+   <span class="markdown">Corrective action consisting of a notice issued to users with relevant safety information or instructions</span>
+  </div>
+  <dl class="description">
+   <dt>
+    has super-classes
+   </dt>
+   <dd>
+    <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    is disjoint with
+   </dt>
+   <dd>
+    <a href="#InSituCorrection" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InSituCorrection">In situ correction</a> <sup class="type-c" title="class">c</sup>, <a href="#Recall" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Recall">Recall</a> <sup class="type-c" title="class">c</sup>, <a href="#SafetyAlert" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert">Safety Alert</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="objectproperties">
+ <h3 id="properties" class="list">Object Properties</h3>
+ <ul class="hlist">
+  <li><a href="#affectsDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice">Affects Device</a></li>
+  <li><a href="#affectsDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType">Affects device type</a></li>
+  <li><a href="#hasSeverity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity">Classifies the severity of a risk</a></li>
+  <li><a href="#hasAssociatedRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk">Has associated Risk</a></li>
+  <li><a href="#hasCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory">Has category</a></li>
+  <li><a href="#hasCountry" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry">Has Country</a></li>
+  <li><a href="#hasDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType">Has device type</a></li>
+  <li><a href="#hasProbability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability">Has Probability</a></li>
+  <li><a href="#hasRegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework">has regulatory framework</a></li>
+  <li><a href="#hasRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass">Has risk class</a></li>
+  <li><a href="#manufacturedBy" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy">Manufactured by</a></li>
+  <li><a href="#relatedToIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident">Related to incident</a></li>
+  <li><a href="#reportedBy" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy">Reported by</a></li>
+  <li><a href="#reportedInCountry" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry">Reported in country</a></li>
+ </ul>
+ <div class="entity" id="affectsDevice">
+  <h3>Affects Device<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice</p>
+  <div class="comment">
+   <span class="markdown">Relates a risk to a specific device that may be affected by that risk</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="affectsDeviceType">
+  <h3>Affects device type<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType</p>
+  <div class="comment">
+   <span class="markdown">Relates a risk to a specific device type that may be affected by that risk</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasSeverity">
+  <h3>Classifies the severity of a risk<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAssociatedRisk">
+  <h3>Has associated Risk<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk</p>
+  <div class="comment">
+   <span class="markdown">Relates an incident to a specific risk that caused it</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasCategory">
+  <h3>Has category<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory</p>
+  <div class="comment">
+   <span class="markdown">Relates a risk to a specific category of risks</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasCountry">
+  <h3>Has Country<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry</p>
+  <div class="comment">
+   <span class="markdown">Relates a risk to a manufacturer to a specific country of procedence</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasDeviceType">
+  <h3>Has device type<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType</p>
+  <div class="comment">
+   <span class="markdown">Relates a device to a specific type</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasProbability">
+  <h3>Has Probability<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability</p>
+  <div class="comment">
+   <span class="markdown">Specifies the probability for a risk to actually happend</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRegulatoryFramework">
+  <h3>has regulatory framework<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework</p>
+  <div class="comment">
+   <span class="markdown">Relates the regulatory framework that legislates over a device</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRiskClass">
+  <h3>Has risk class<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass</p>
+  <div class="comment">
+   <span class="markdown">Relates a device to a specific risk class</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#RiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskClass">Risk Class</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="manufacturedBy">
+  <h3>Manufactured by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="relatedToIncident">
+  <h3>Related to incident<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident</p>
+  <div class="comment">
+   <span class="markdown">relates an incident to a specific corrective action taken around it</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="reportedBy">
+  <h3>Reported by<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="reportedInCountry">
+  <h3>Reported in country<sup class="type-op" title="object property">op</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#objectproperties">Object Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry</p>
+  <div class="comment">
+   <span class="markdown">relates an incident to the country its been reported at</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="dataproperties">
+ <h3 id="dataproperties-headline" class="list">Data Properties</h3>
+ <ul class="hlist">
+  <li><a href="#hasActionDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate">Action date</a></li>
+  <li><a href="#hasAffectedCountries" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries">Affected countries</a></li>
+  <li><a href="#hasAffectedDeviceCount" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount">Affected device count</a></li>
+  <li><a href="#hasAffectedPatientAge" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge">Affected patient age</a></li>
+  <li><a href="#hasAffectedPatientSex" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex">Affected patient sex</a></li>
+  <li><a href="#hasClosureDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate">Closure date</a></li>
+  <li><a href="#hasCompetentAuthority" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority">Competent authority</a></li>
+  <li><a href="#hasContactEmail" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail">Contact email</a></li>
+  <li><a href="#hasCorrectiveActionDescription" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription">Corrective action description</a></li>
+  <li><a href="#correctiveActionTaken" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken">Corrective action taken</a></li>
+  <li><a href="#hasDetectionDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate">Detection date</a></li>
+  <li><a href="#hasEudamedFscaRef" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef">EUDAMED FSCA ref</a></li>
+  <li><a href="#hasEudamedIncidentRef" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef">EUDAMED incident ref</a></li>
+  <li><a href="#hasEventDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate">Event date</a></li>
+  <li><a href="#hasAuthorizationNumber" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber">Has authorization number</a></li>
+  <li><a href="#hasEudamedSrn" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn"> <span>has Eudamed Srn</span> </a></li>
+  <li><a href="#hasReportDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate"> <span>has Report Date</span> </a></li>
+  <li><a href="#hasScope" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope"> <span>has Scope</span> </a></li>
+  <li><a href="#hasImdrfCode" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode">IMDRF code</a></li>
+  <li><a href="#hasIncidentDescription" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription">Incident description</a></li>
+  <li><a href="#hasIntendedPurpose" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose">Intended Purpose</a></li>
+  <li><a href="#isActive" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive">Is active</a></li>
+  <li><a href="#isActiveDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice">Is active device type</a></li>
+  <li><a href="#isImplantable" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable">Is implantable</a></li>
+  <li><a href="#isImplantableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice">is implantable device type</a></li>
+  <li><a href="#isIvd" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd">is IVD</a></li>
+  <li><a href="#isReusable" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable">Is reusable</a></li>
+  <li><a href="#isReusableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice">Is reusable device type</a></li>
+  <li><a href="#hasOutcome" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome">Outcome</a></li>
+  <li><a href="#hasRiskDescription" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription">Risk description</a></li>
+  <li><a href="#hasStatus" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus">Status</a></li>
+  <li><a href="#hasUdiDi" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi">UDI ID</a></li>
+ </ul>
+ <div class="entity" id="hasActionDate">
+  <h3>Action date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate</p>
+  <div class="comment">
+   <span class="markdown">Indicates whether a corrective action has been taken in response to an incident</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAffectedCountries">
+  <h3>Affected countries<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries</p>
+  <div class="comment">
+   <span class="markdown">Countries or regions affected by a corrective action</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAffectedDeviceCount">
+  <h3>Affected device count<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount</p>
+  <div class="comment">
+   <span class="markdown">Number of devices affected by a corrective action</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAffectedPatientAge">
+  <h3>Affected patient age<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge</p>
+  <div class="comment">
+   <span class="markdown">Age of the patient affected by an incident</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAffectedPatientSex">
+  <h3>Affected patient sex<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex</p>
+  <div class="comment">
+   <span class="markdown">Age of the patient affected by an incident</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasClosureDate">
+  <h3>Closure date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasCompetentAuthority">
+  <h3>Competent authority<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority</p>
+  <div class="comment">
+   <span class="markdown">Authority responsible for the regulation</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasContactEmail">
+  <h3>Contact email<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail</p>
+  <div class="comment">
+   <span class="markdown">Email address used to contact the manufacturer</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasCorrectiveActionDescription">
+  <h3>Corrective action description<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription</p>
+  <div class="comment">
+   <span class="markdown">Description of a corrective action</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="correctiveActionTaken">
+  <h3>Corrective action taken<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#correctiveActionTaken</p>
+  <div class="comment">
+   <span class="markdown">Indicates whether a corrective action has been taken in response to an incident</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasDetectionDate">
+  <h3>Detection date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate</p>
+  <div class="comment">
+   <span class="markdown">Date in which an incident was detected</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasEudamedFscaRef">
+  <h3>EUDAMED FSCA ref<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasEudamedIncidentRef">
+  <h3>EUDAMED incident ref<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef</p>
+  <div class="comment">
+   <span class="markdown">EUDAMED reference number for an incident</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasEventDate">
+  <h3>Event date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasAuthorizationNumber">
+  <h3>Has authorization number<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber</p>
+  <div class="comment">
+   <span class="markdown">Regulatory authorization number assigned to a manufacturer</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasEudamedSrn">
+  <h3>has Eudamed Srn<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn</p>
+  <div class="comment">
+   <span class="markdown">EUDAMED SRN</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasReportDate">
+  <h3>has Report Date<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate</p>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasScope">
+  <h3>has Scope<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope</p>
+  <div class="comment">
+   <span class="markdown">Scope</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasImdrfCode">
+  <h3>IMDRF code<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode</p>
+  <div class="comment">
+   <span class="markdown">Code assigned to a risk according to the IMDRF terminology</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasIncidentDescription">
+  <h3>Incident description<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription</p>
+  <div class="comment">
+   <span class="markdown">Description of an incident</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasIntendedPurpose">
+  <h3>Intended Purpose<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose</p>
+  <div class="comment">
+   <span class="markdown">Description of the intended medical purpose or use of a device</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isActive">
+  <h3>Is active<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActive</p>
+  <div class="comment">
+   <span class="markdown">Indicates whether a device is an active device</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isActiveDevice">
+  <h3>Is active device type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice</p>
+  <div class="comment">
+   <span class="markdown">Indicates whether a device Type represents an active device</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isImplantable">
+  <h3>Is implantable<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantable</p>
+  <div class="comment">
+   <span class="markdown">Indicates wether a device is implantable</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isImplantableDevice">
+  <h3>is implantable device type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice</p>
+  <div class="comment">
+   <span class="markdown">indicates wether a device type represents an implantable device</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isIvd">
+  <h3>is IVD<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isIvd</p>
+  <div class="comment">
+   <span class="markdown">Indicates whether a device is an in vitro diagnostic medical device</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isReusable">
+  <h3>Is reusable<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusable</p>
+  <div class="comment">
+   <span class="markdown">Indicates whether a device is reusable</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="isReusableDevice">
+  <h3>Is reusable device type<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice</p>
+  <div class="comment">
+   <span class="markdown">Indicates wether a device type represents a reusable device</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasOutcome">
+  <h3>Outcome<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasOutcome</p>
+  <div class="comment">
+   <span class="markdown">Result or consequence of an incident involving a medical device</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasRiskDescription">
+  <h3>Risk description<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription</p>
+  <div class="comment">
+   <span class="markdown">Description of a risk</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasStatus">
+  <h3>Status<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasStatus</p>
+  <div class="comment">
+   <span class="markdown">Indicates whether a corrective action is closed</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+ <div class="entity" id="hasUdiDi">
+  <h3>UDI ID<sup class="type-dp" title="data property">dp</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#dataproperties">Data Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi</p>
+  <div class="comment">
+   <span class="markdown">Unique Device Identifier assigned to a medical device</span>
+  </div>
+  <div class="description">
+   <dl>
+    <dt>
+     has super-properties
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2002/07/owl#topDataProperty" target="_blank" title="http://www.w3.org/2002/07/owl#topDataProperty">top Data Property</a> <sup class="type-dp" title="data property">dp</sup>
+    </dd>
+    <dt>
+     has domain
+    </dt>
+    <dd>
+     <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+    </dd>
+    <dt>
+     has range
+    </dt>
+    <dd>
+     <a href="http://www.w3.org/2001/XMLSchema#string" target="_blank" title="http://www.w3.org/2001/XMLSchema#string">string</a>
+    </dd>
+   </dl>
+  </div>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="annotationproperties">
+ <h3 id="annotationproperties" class="list">Annotation Properties</h3>
+ <ul class="hlist">
+  <li><a href="#http://www.w3.org/2000/01/rdf-schema#sameAs" title="http://www.w3.org/2000/01/rdf-schema#sameAs"> <span>same As</span> </a></li>
+ </ul>
+ <div class="entity" id="http://www.w3.org/2000/01/rdf-schema#sameAs">
+  <h3>same As<sup class="type-ap" title="annotation property">ap</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#annotationproperties">Annotation Property ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.w3.org/2000/01/rdf-schema#sameAs</p>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="namedindividuals">
+ <h3 id="namedindividuals" class="list">Named Individuals</h3>
+ <ul class="hlist">
+  <li><a href="#ClassC" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC">Class C</a></li>
+  <li><a href="#ClassIII" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII">Class III</a></li>
+  <li><a href="#Critical" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical">Critical</a></li>
+  <li><a href="#FSCA-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001">FSCA-001</a></li>
+  <li><a href="#DEU" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU">Germany</a></li>
+  <li><a href="#DEV-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001">HeartMate 3 LVAD</a></li>
+  <li><a href="#ImplantableActiveDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice">Implantable active device</a></li>
+  <li><a href="#INC-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001">INC-001</a></li>
+  <li><a href="#IRL" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL">Ireland</a></li>
+  <li><a href="#Low" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low">Low</a></li>
+  <li><a href="#MDR" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR">MDR</a></li>
+  <li><a href="#MAN-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001">Medtronic plc</a></li>
+  <li><a href="#PatientHarm" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm">Patient harm</a></li>
+  <li><a href="#RSK-003" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003">Thrombosis - device-related</a></li>
+ </ul>
+ <div class="entity" id="ClassC">
+  <h3>Class C<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassC</p>
+  <div class="comment">
+   <span class="markdown">IVDR risk class C for in vitro diagnostic devices</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#IVDRRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IVDRRiskClass">IVDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ClassIII">
+  <h3>Class III<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII</p>
+  <dl class="definedBy">
+   <dt>
+    Is defined by
+   </dt>
+   <dd>
+    Highest MDR risk class for medical devices
+   </dd>
+  </dl>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#MDRRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDRRiskClass">MDR Risk Class</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Critical">
+  <h3>Critical<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical</p>
+  <div class="comment">
+   <span class="markdown">Critical severity level for a risk</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Severity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Severity">Severity</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="FSCA-001">
+  <h3>FSCA-001<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#FSCA-001</p>
+  <div class="comment">
+   <span class="markdown">Field safety corrective action related to incident INC-001</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#SafetyAlert" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SafetyAlert">Safety Alert</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#relatedToIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident">Related to incident</a> <sup class="type-op" title="object property">op</sup> <a href="#INC-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001">INC-001</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasActionDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasActionDate">Action date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-02-01"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasAffectedCountries" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedCountries">Affected countries</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"EU-wide"</span>
+   </dd>
+   <dd>
+    <a href="#hasAffectedDeviceCount" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedDeviceCount">Affected device count</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"850"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasClosureDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasClosureDate">Closure date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2026-01-01"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasCorrectiveActionDescription" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCorrectiveActionDescription">Corrective action description</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Safety alert issued to all implanting centres regarding anticoagulation protocol update for HeartMate 3 to reduce device thrombosis risk. INR target range revised to 2.0–3.0."</span>
+   </dd>
+   <dd>
+    <a href="#hasEudamedFscaRef" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedFscaRef">EUDAMED FSCA ref</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"EU-FSCA-2024-000001"</span>
+   </dd>
+   <dd>
+    <a href="#hasScope" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasScope">has Scope</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"All HeartMate 3 LVAD units implanted since 2020"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DEU">
+  <h3>Germany<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU</p>
+  <div class="comment">
+   <span class="markdown">European Country</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="DEV-001">
+  <h3>HeartMate 3 LVAD<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001</p>
+  <div class="comment">
+   <span class="markdown">Implantable ventricular assist device registered under MDR and associated with high-risk classification</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType">Has device type</a> <sup class="type-op" title="object property">op</sup> <a href="#ImplantableActiveDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice">Implantable active device</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasRegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRegulatoryFramework">has regulatory framework</a> <sup class="type-op" title="object property">op</sup> <a href="#MDR" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR">MDR</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasRiskClass" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskClass">Has risk class</a> <sup class="type-op" title="object property">op</sup> <a href="#ClassIII" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ClassIII">Class III</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#manufacturedBy" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#manufacturedBy">Manufactured by</a> <sup class="type-op" title="object property">op</sup> <a href="#MAN-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001">Medtronic plc</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasIntendedPurpose" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIntendedPurpose">Intended Purpose</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Ventricular assist device for end-stage heart failure"</span>
+   </dd>
+   <dd>
+    <a href="#hasUdiDi" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasUdiDi">UDI ID</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"(01)00380740009095"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="ImplantableActiveDevice">
+  <h3>Implantable active device<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice</p>
+  <div class="comment">
+   <span class="markdown">Device type for active implantable medical devices</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#isActiveDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isActiveDevice">Is active device type</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"true"^^<a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a> </span>
+   </dd>
+   <dd>
+    <a href="#isImplantableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice">is implantable device type</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"true"^^<a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a> </span>
+   </dd>
+   <dd>
+    <a href="#isReusableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isReusableDevice">Is reusable device type</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"false"^^<a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="INC-001">
+  <h3>INC-001<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#INC-001</p>
+  <div class="comment">
+   <span class="markdown">Serious incident associated with device thrombosis after implantation</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#SeriousIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#SeriousIncident">Serious Incident</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasAssociatedRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAssociatedRisk">Has associated Risk</a> <sup class="type-op" title="object property">op</sup> <a href="#RSK-003" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003">Thrombosis - device-related</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#reportedBy" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedBy">Reported by</a> <sup class="type-op" title="object property">op</sup> <a href="#MAN-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001">Medtronic plc</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#reportedInCountry" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#reportedInCountry">Reported in country</a> <sup class="type-op" title="object property">op</sup> <a href="#DEU" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEU">Germany</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasAffectedPatientAge" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientAge">Affected patient age</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"58"^^<a href="http://www.w3.org/2001/XMLSchema#integer" target="_blank" title="http://www.w3.org/2001/XMLSchema#integer">integer</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasAffectedPatientSex" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAffectedPatientSex">Affected patient sex</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Male"</span>
+   </dd>
+   <dd>
+    <a href="#hasDetectionDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDetectionDate">Detection date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-01-10"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasEudamedIncidentRef" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedIncidentRef">EUDAMED incident ref</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"EU-INC-2024-000001"</span>
+   </dd>
+   <dd>
+    <a href="#hasEventDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEventDate">Event date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-01-08"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+   <dd>
+    <a href="#hasIncidentDescription" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasIncidentDescription">Incident description</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Patient implanted with HeartMate 3 LVAD developed ischemic stroke 6 months post-implant. Device thrombus confirmed by echocardiography."</span>
+   </dd>
+   <dd>
+    <a href="#hasReportDate" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasReportDate">has Report Date</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"2024-01-15"^^<a href="http://www.w3.org/2001/XMLSchema#date" target="_blank" title="http://www.w3.org/2001/XMLSchema#date">date</a> </span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="IRL">
+  <h3>Ireland<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL</p>
+  <div class="comment">
+   <span class="markdown">European Country</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Country" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country">Country</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="Low">
+  <h3>Low<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low</p>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Probability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Probability">Probability</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MDR">
+  <h3>MDR<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MDR</p>
+  <div class="comment">
+   <span class="markdown">European regulatory framework for medical devices under Regulation (EU) 2017/745</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#RegulatoryFramework" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework">Regulatory Framework</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="MAN-001">
+  <h3>Medtronic plc<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MAN-001</p>
+  <div class="comment">
+   <span class="markdown">Manufacturer of medical devices based in Ireland</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#Manufacturer" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Manufacturer">Manufacturer</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#hasCountry" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCountry">Has Country</a> <sup class="type-op" title="object property">op</sup> <a href="#IRL" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IRL">Ireland</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasAuthorizationNumber" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasAuthorizationNumber">Has authorization number</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"IE/2017/001234"</span>
+   </dd>
+   <dd>
+    <a href="#hasCompetentAuthority" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCompetentAuthority">Competent authority</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"HPRA"</span>
+   </dd>
+   <dd>
+    <a href="#hasContactEmail" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasContactEmail">Contact email</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"regulatory@medtronic.com"</span>
+   </dd>
+   <dd>
+    <a href="#hasEudamedSrn" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasEudamedSrn">has Eudamed Srn</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"SRN-IE-MED-0001"</span>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="PatientHarm">
+  <h3>Patient harm<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm</p>
+  <div class="comment">
+   <span class="markdown">Risk category related to harm caused to a patient</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#RiskCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RiskCategory">Risk Category</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+  </dl>
+ </div>
+ <div class="entity" id="RSK-003">
+  <h3>Thrombosis - device-related<sup class="type-ni" title="named individual">ni</sup> <span class="backlink"> back to <a href="#toc">ToC</a> or <a href="#namedindividuals">Named Individual ToC</a> </span></h3>
+  <p><strong>IRI:</strong> http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RSK-003</p>
+  <div class="comment">
+   <span class="markdown">Risk associated with thrombus formation on the device surface causing embolic events</span>
+  </div>
+  <dl class="description">
+   <dt>
+    belongs to
+   </dt>
+   <dd>
+    <a href="#InjuryRisk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#InjuryRisk">Injury Risk</a> <sup class="type-c" title="class">c</sup>
+   </dd>
+   <dt>
+    has facts
+   </dt>
+   <dd>
+    <a href="#affectsDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice">Affects Device</a> <sup class="type-op" title="object property">op</sup> <a href="#DEV-001" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DEV-001">HeartMate 3 LVAD</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#affectsDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType">Affects device type</a> <sup class="type-op" title="object property">op</sup> <a href="#ImplantableActiveDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableActiveDevice">Implantable active device</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasCategory" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasCategory">Has category</a> <sup class="type-op" title="object property">op</sup> <a href="#PatientHarm" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#PatientHarm">Patient harm</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasProbability" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasProbability">Has Probability</a> <sup class="type-op" title="object property">op</sup> <a href="#Low" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Low">Low</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasSeverity" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasSeverity">Classifies the severity of a risk</a> <sup class="type-op" title="object property">op</sup> <a href="#Critical" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Critical">Critical</a> <sup class="type-ni" title="named individual">ni</sup>
+   </dd>
+   <dd>
+    <a href="#hasImdrfCode" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasImdrfCode">IMDRF code</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"A0201"</span>
+   </dd>
+   <dd>
+    <a href="#hasRiskDescription" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasRiskDescription">Risk description</a> <sup class="type-dp" title="data property">dp</sup> <span class="literal">"Thrombus formation on device surface causing embolic events"</span>
+   </dd>
+  </dl>
+ </div>
+</div><div xmlns:widoco="https://w3id.org/widoco/vocab#" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="swrlrules">
+ <h3 id="swrlrules" class="list">SWRL rules</h3>
+ <ul class="hlist">
+  <li><a href="#d4e1744">Rule #1</a></li>
+  <li><a href="#d4e1858">Rule #2</a></li>
+  <li><a href="#d4e1949">Rule #3</a></li>
+ </ul>
+ <div class="entity" id="d4e1744">
+  <h3>Rule #1<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p><a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>(?d) , <a href="#hasDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType">Has device type</a> <sup class="type-op" title="object property">op</sup>(?d,?t) , <a href="#DeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#DeviceType">Device Type</a> <sup class="type-c" title="class">c</sup>(?t) , <a href="#isImplantableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#isImplantableDevice">is implantable device type</a> <sup class="type-dp" title="data property">dp</sup>(?t,"true"^^<a href="http://www.w3.org/2001/XMLSchema#boolean" target="_blank" title="http://www.w3.org/2001/XMLSchema#boolean">boolean</a>) -&gt; <a href="#ImplantableDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#ImplantableDevice">Implantable Device</a> <sup class="type-c" title="class">c</sup>(?d)</p>
+ </div>
+ <div class="entity" id="d4e1858">
+  <h3>Rule #2<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p><a href="#Incident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Incident">Incident</a> <sup class="type-c" title="class">c</sup>(?i) , <a href="#CorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#CorrectiveAction">Corrective action</a> <sup class="type-c" title="class">c</sup>(?c) , <a href="#relatedToIncident" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#relatedToIncident">Related to incident</a> <sup class="type-op" title="object property">op</sup>(?c,?i) -&gt; <a href="#IncidentWithCorrectiveAction" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#IncidentWithCorrectiveAction">Incident with corrective Action</a> <sup class="type-c" title="class">c</sup>(?i)</p>
+ </div>
+ <div class="entity" id="d4e1949">
+  <h3>Rule #3<span class="backlink">back to <a href="#toc">ToC</a> or <a href="#swrlrules">SWRL ToC</a> </span></h3>
+  <p><a href="#Risk" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Risk">Risk</a> <sup class="type-c" title="class">c</sup>(?r) , <a href="#affectsDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDeviceType">Affects device type</a> <sup class="type-op" title="object property">op</sup>(?r,?t) , <a href="#Device" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Device">Device</a> <sup class="type-c" title="class">c</sup>(?d) , <a href="#hasDeviceType" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#hasDeviceType">Has device type</a> <sup class="type-op" title="object property">op</sup>(?d,?t) -&gt; <a href="#affectsDevice" title="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#affectsDevice">Affects Device</a> <sup class="type-op" title="object property">op</sup>(?r,?d)</p>
+ </div>
+</div><div id="legend">
+<h2>Legend <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div   class="entity">
+<sup class="type-c" title="Classes">c</sup>: Classes <br/>
+<sup class="type-op" title="Object Properties">op</sup>: Object Properties <br/>
+<sup class="type-dp" title="Data Properties">dp</sup>: Data Properties <br/>
+<sup class="type-ni" title="Named Individuals">ni</sup>: Named Individuals <br/>
+</div>
+</div>
+</div>
+    
+
+<!--REFERENCES SECTION-->
+  <div id="references">
+<h2 id="ref" class="list">References <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<span class="markdown">
+Add your references here. It is recommended to have them as a list.</span>
+
+</div>
+<div id="acknowledgments">
+<h2 id="ack" class="list">Acknowledgments <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>
+The authors would like to thank <a href="http://www.essepuntato.it/">Silvio Peroni</a> for developing <a href="http://www.essepuntato.it/lode">LODE</a>, a Live OWL Documentation Environment, which is used for representing the Cross Referencing Section of this document and <a href="https://w3id.org/people/dgarijo">Daniel Garijo</a> for developing <a href="https://github.com/dgarijo/Widoco">Widoco</a>, the program used to create the template used in this documentation.</p>
+</div>
+
+
+</div>
+</body>
+</html>
