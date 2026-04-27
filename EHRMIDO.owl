@@ -9,7 +9,10 @@
      xmlns:swrl="http://www.w3.org/2003/11/swrl#"
      xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
      xmlns:EHRMIDO="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO"/>
+    <owl:Ontology rdf:about="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO">
+        <rdfs:comment>Ontology for representing European high-risk medical devices, manufacturers, regulatory risk classes, identified risks, incidents and field safety corrective actions based on EUDAMED-related data</rdfs:comment>
+        <rdfs:label>European High-Risk Medical Device Ontology</rdfs:label>
+    </owl:Ontology>
     
 
 
@@ -653,6 +656,7 @@
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#MedicalEntity"/>
         <rdfs:comment>Class representing a territory related with the manufacturer of a device or an incident</rdfs:comment>
         <rdfs:label>Country</rdfs:label>
+        <rdfs:sameAs rdf:resource="http://publications.europa.eu/resource/authority/country"/>
     </owl:Class>
     
 
@@ -1054,6 +1058,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country"/>
         <rdfs:comment>European Country</rdfs:comment>
         <rdfs:label>Germany</rdfs:label>
+        <rdfs:sameAs rdf:resource="http://publications.europa.eu/resource/authority/country/DEU"/>
     </owl:NamedIndividual>
     
 
@@ -1118,6 +1123,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#Country"/>
         <rdfs:comment>European Country</rdfs:comment>
         <rdfs:label>Ireland</rdfs:label>
+        <rdfs:sameAs rdf:resource="http://publications.europa.eu/resource/authority/country/IRL"/>
     </owl:NamedIndividual>
     
 
@@ -1166,7 +1172,7 @@
         <rdf:type rdf:resource="http://www.semanticweb.org/brams/ontologies/2026/3/EHRMIDO#RegulatoryFramework"/>
         <rdfs:comment>European regulatory framework for medical devices under Regulation (EU) 2017/745</rdfs:comment>
         <rdfs:label>MDR</rdfs:label>
-        <rdfs:seeAlso>https://eur-lex.europa.eu/eli/reg/2017/745/oj/eng</rdfs:seeAlso>
+        <rdfs:sameAs rdf:resource="https://eur-lex.europa.eu/eli/reg/2017/745/oj/eng"/>
     </owl:NamedIndividual>
     
 
